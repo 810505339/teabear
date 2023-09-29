@@ -1,0 +1,1 @@
+"D:\Program Files\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e test-3gszsltre96027e3 --n quickstartFunctions --r --project "E:\project\miniprogram\teabear" --report_first --report
