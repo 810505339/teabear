@@ -11,6 +11,7 @@ node_modules
 .DS_Store
 dist
 *.local
+vue3-project/dist
 
 # Editor directories and files
 .idea
