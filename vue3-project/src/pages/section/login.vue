@@ -45,6 +45,9 @@ function getUserInfo(){
     success: (res) => {
       console.log(res);
       userInfo.value=res.userInfo
+      uni.redirectTo({
+	  url:'./page1'
+      })
     }})
 
 }
