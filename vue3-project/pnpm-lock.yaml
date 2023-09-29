@@ -44,6 +44,9 @@ dependencies:
   '@dcloudio/uni-quickapp-webview':
     specifier: 3.0.0-3081220230817001
     version: 3.0.0-3081220230817001(postcss@8.4.31)(vue@3.3.4)
+  '@types/weixin-app':
+    specifier: ^2.9.5
+    version: 2.9.5
   vue:
     specifier: ^3.2.45
     version: 3.3.4
@@ -2981,6 +2984,10 @@ packages:
   /@types/stack-utils@2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
+
+  /@types/weixin-app@2.9.5:
+    resolution: {integrity: sha512-wY98XfjxGM4H1MWFwL08aObyYXeqxYL8ZhDKR7wOqHIyqLIQ/BiCmrbRCL/lXi8PZADzDWiRqiedk3nau5w9Ng==}
+    dev: false
 
   /@types/yargs-parser@21.0.1:
     resolution: {integrity: sha512-axdPBuLuEJt0c4yI5OZssC19K2Mq1uKdrfZBzuxLvaztgqUtFYZUNw7lETExPYJR9jdEoIg4mb7RQKRQzOkeGQ==}
