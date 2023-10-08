@@ -1,14 +1,15 @@
 <template>
 	<view class="bg"></view>
 	<view class="head" :animation="animationData.title">
-		<image src="../../static/img/page2/title.png" mode="cover" class="title" />
-		<image src="../../static/img/page2/head_bg.png" mode="cover" class="title_bg" />
+		<image :src="title" mode="cover" class="title" />
+		<image :src="head_bg" mode="cover" class="title_bg" />
 	</view>
 
-	<view class="text_youliao" :animation="animationData.youliao">有料棕</view>
-	<view class="text_zhiyu" :animation="animationData.zhiyu">治愈绿</view>
-	<image src="../../static/img/page2/to_right.png" mode="cover" class="to_right" :animation="animationData.toRight" />
-	<image src="../../static/img/page2/to_left.png" mode="cover" class="to_left" :animation="animationData.toLeft" />
+	
+	<image :src="youliao" mode="cover" class="text_youliao" :animation="animationData.youliao" />
+	<image :src="zhiyu" mode="cover" class="text_zhiyu" :animation="animationData.zhiyu" />
+	<image :src="to_right" mode="cover" class="to_right" :animation="animationData.toRight" />
+	<image :src="to_left" mode="cover" class="to_left" :animation="animationData.toLeft" />
 
 </template>
 <script setup lang="ts">
@@ -16,9 +17,13 @@
 		ref,
 		onMounted
 	} from "vue";
-	import {
-		sleep
-	} from '@/utils/sleep'
+import title from '@/static/img/page2/title.png'
+import head_bg from '@/static/img/page2/head_bg.png'
+import to_right from '@/static/img/page2/to_right.png'
+import to_left from '@/static/img/page2/to_left.png'
+import youliao from '@/static/img/page2/youliao.png'
+import zhiyu from '@/static/img/page2/zhiyu.png'
+
 
 	onMounted(() => {
 		getAnimation(animationStep);
@@ -47,7 +52,7 @@
 		},
 		titleMove: {
 			action: {
-				translateY: -170
+				translateY: '-485rpx'
 			},
 			duration: 1000,
 			key: "title"
@@ -82,16 +87,6 @@
 			key: 'zhiyu'
 		}
 	});
-	const getTextAnimation = () => { //字体淡入
-		const textAnimation1 = uni.createAnimation(animationOption);
-		const textAnimation2 = uni.createAnimation(animationOption);
-		textAnimation1.opacity(1).step();
-		textAnimation2.opacity(1).step();
-
-		animationData.value.youliao = textAnimation1.export()
-		animationData.value.zhiyu = textAnimation2.export()
-	}
-
 	const getAnimation = (obj) => {
 		let sleep = 0
 		Object.values(obj.value).forEach((t, i) => {
@@ -154,7 +149,7 @@
 		width: 665rpx;
 		height: 518rpx;
 		position: absolute;
-		top: 341rpx;
+		top: 309rpx;
 		left: -100%;
 		background: #99b4d3;
 		-webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
@@ -165,7 +160,7 @@
 		width: 665rpx;
 		height: 518rpx;
 		position: absolute;
-		top: 695rpx;
+		top: 662rpx;
 		left: 100%;
 		background: #99b4d3;
 		-webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
@@ -174,21 +169,25 @@
 
 	.text_youliao {
 		position: absolute;
-		top: 30%;
-		left: 54%;
+		top: 429rpx;
+		left:186rpx;
 		font-size: 100rpx;
 		color: #825D45;
 		z-index: 999;
 		opacity: 0;
+		width: 447rpx;
+		height: 139rpx;
 	}
 
 	.text_zhiyu {
 		font-size: 100rpx;
 		color: #B1D026;
 		position: absolute;
-		top: 72%;
-		right: 54%;
+		top: 934rpx;
+		right:186rpx;
 		z-index: 999;
 		opacity: 0;
+		width: 447rpx;
+		height: 145rpx;
 	}
 </style>
