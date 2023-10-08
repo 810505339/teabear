@@ -30,6 +30,7 @@ import ye3Png from '@/static/img/page1/ye3.gif'
 //熊
 import greenBar from '@/static/img/page1/greenbar.gif'
 
+
 const DURATION = 3500
 const Y = 1000
 
@@ -40,6 +41,7 @@ const animationOption: UniApp.CreateAnimationOptions = {
 const animationData = ref({
   top: '',
   bottom: '',
+  option: '',
 })
 const show = ref(false)
 
@@ -47,26 +49,25 @@ async function getAnimation(top: number, bottom: number) {
   const topAnimation = uni.createAnimation(animationOption)
   const bottomAnimation = uni.createAnimation(animationOption)
   topAnimation.translateY(top).step()
-  bottomAnimation.scale(2,2).translateY(bottom).step()
+  bottomAnimation.scale(2, 2).translateY(bottom).step()
   animationData.value.top = topAnimation.export()
   animationData.value.bottom = bottomAnimation.export()
 }
+
+
 
 async function trigger() {
   console.log(`动画触发`)
   getAnimation(-Y, Y)
   //等待动画执行完毕
   await sleep(DURATION)
+
   //跳转第二个页面
 
 }
 
 setTimeout(async () => {
-  //await getAnimation(0, 0)
-  //等待动画执行完毕
-  await sleep(DURATION)
   show.value = true
-
 }, 0)
 
 </script>
@@ -100,17 +101,14 @@ setTimeout(async () => {
 }
 
 .top {
-
   z-index: 5;
-  height: 70vh;
+  height: 57vh;
 }
 
-.bottom {
 
+.bottom {
   z-index: 10;
   position: absolute;
-
-
 }
 
 .top-img {
@@ -122,13 +120,13 @@ setTimeout(async () => {
 .ye {
   position: absolute;
   z-index: 40;
-  top: 0rpx
+  top: 0rpx;
 }
 
 .ye2 {
   position: absolute;
   z-index: 70;
-  top: -10rpx;
+  top: 10rpx;
 }
 
 .bottom-img {
