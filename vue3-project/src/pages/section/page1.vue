@@ -4,6 +4,7 @@
     <view class="box_warper">
       <view class="box top" :animation="animationData.top">
         <image :src="topBg" class="top-img" mode="aspectFill" />
+        <image :src="yePng" class="top-img" mode="aspectFill" />
       </view>
       <view class="box bottom" :animation="animationData.bottom">
         <image :src="bottomBg" mode="aspectFill" class="bottom-img" width="100%" height="100%" />
@@ -16,6 +17,7 @@ import { ref } from 'vue';
 import { sleep } from '@/utils/sleep'
 import topBg from '@/static/img/page1/top-bg.png'
 import bottomBg from '@/static/img/page1/bottom-bg.png'
+import yePng from '@/static/img/page1/ye.gif'
 
 const DURATION = 3500
 const Y = 600
@@ -75,8 +77,6 @@ setTimeout(async () => {
 }
 
 .box {
-
-
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -85,7 +85,6 @@ setTimeout(async () => {
   position: absolute;
   left: 0;
   right: 0;
-
   height: 100vh;
 }
 
