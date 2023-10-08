@@ -3,14 +3,15 @@
     <view class="full" @click="trigger" v-show="show"></view>
     <view class="box_warper">
       <view class="box top" :animation="animationData.top">
-        <image :src="topBg" class="top-img" mode="aspectFill" />
-        <image :src="yePng" class="ye" mode="aspectFill" />
-       
+        <image :src="topBg" class="top-img" />
       </view>
-      <image :src="ye2Png"  :animation="animationData.top" class="ye2" mode="aspectFill" />
-     
+      <image :src="yePng" class="ye" mode="aspectFill" :animation="animationData.top" />
+      <image :src="ye2Png" :animation="animationData.top" class="ye2" />
+
       <view class="box bottom" :animation="animationData.bottom">
-        <image :src="bottomBg" mode="aspectFill" class="bottom-img" width="100%" height="100%" />
+        <image :src="bottomBg" class="bottom-img" width="100%" height="100%" />
+        <image :src="ye3Png" class="green-bar" width="100%" height="100%" />
+        <image :src="greenBar" class="green-bar" width="100%" height="100%" />
       </view>
     </view>
   </view>
@@ -22,6 +23,13 @@ import topBg from '@/static/img/page1/top-bg.png'
 import bottomBg from '@/static/img/page1/bottom-bg.png'
 import yePng from '@/static/img/page1/ye.gif'
 import ye2Png from '@/static/img/page1/ye2.gif'
+import ye3Png from '@/static/img/page1/ye3.gif'
+
+
+
+//熊
+import greenBar from '@/static/img/page1/greenbar.gif'
+
 
 const DURATION = 3500
 const Y = 1000
@@ -33,6 +41,7 @@ const animationOption: UniApp.CreateAnimationOptions = {
 const animationData = ref({
   top: '',
   bottom: '',
+  option: '',
 })
 const show = ref(false)
 
@@ -40,26 +49,25 @@ async function getAnimation(top: number, bottom: number) {
   const topAnimation = uni.createAnimation(animationOption)
   const bottomAnimation = uni.createAnimation(animationOption)
   topAnimation.translateY(top).step()
-  bottomAnimation.translateY(bottom).step()
+  bottomAnimation.scale(2, 2).translateY(bottom).step()
   animationData.value.top = topAnimation.export()
   animationData.value.bottom = bottomAnimation.export()
 }
+
+
 
 async function trigger() {
   console.log(`动画触发`)
   getAnimation(-Y, Y)
   //等待动画执行完毕
   await sleep(DURATION)
+
   //跳转第二个页面
 
 }
 
 setTimeout(async () => {
-  await getAnimation(0, 0)
-  //等待动画执行完毕
-  await sleep(DURATION)
   show.value = true
-
 }, 0)
 
 </script>
@@ -93,17 +101,14 @@ setTimeout(async () => {
 }
 
 .top {
-
   z-index: 5;
-  height: 65vh;
+  height: 57vh;
 }
 
-.bottom {
 
+.bottom {
   z-index: 10;
   position: absolute;
-
-
 }
 
 .top-img {
@@ -114,17 +119,24 @@ setTimeout(async () => {
 
 .ye {
   position: absolute;
-  z-index: 10;
-  top: 190rpx
+  z-index: 40;
+  top: 0rpx;
 }
 
 .ye2 {
   position: absolute;
-  z-index: 50;
-  top: 0
+  z-index: 70;
+  top: 10rpx;
 }
 
 .bottom-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.green-bar {
   position: absolute;
   left: 0;
   right: 0;
