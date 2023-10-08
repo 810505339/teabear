@@ -4,8 +4,11 @@
     <view class="box_warper">
       <view class="box top" :animation="animationData.top">
         <image :src="topBg" class="top-img" mode="aspectFill" />
-        <image :src="yePng" class="top-img" mode="aspectFill" />
+        <image :src="yePng" class="ye" mode="aspectFill" />
+       
       </view>
+      <image :src="ye2Png"  :animation="animationData.top" class="ye2" mode="aspectFill" />
+     
       <view class="box bottom" :animation="animationData.bottom">
         <image :src="bottomBg" mode="aspectFill" class="bottom-img" width="100%" height="100%" />
       </view>
@@ -18,9 +21,10 @@ import { sleep } from '@/utils/sleep'
 import topBg from '@/static/img/page1/top-bg.png'
 import bottomBg from '@/static/img/page1/bottom-bg.png'
 import yePng from '@/static/img/page1/ye.gif'
+import ye2Png from '@/static/img/page1/ye2.gif'
 
 const DURATION = 3500
-const Y = 600
+const Y = 1000
 
 const animationOption: UniApp.CreateAnimationOptions = {
   duration: DURATION,
@@ -69,7 +73,7 @@ setTimeout(async () => {
 
 .full {
   position: absolute;
-  z-index: 20;
+  z-index: 1000;
   top: 0;
   right: 0;
   left: 0;
@@ -89,7 +93,7 @@ setTimeout(async () => {
 }
 
 .top {
-  transform: translateY(400);
+
   z-index: 5;
   height: 65vh;
 }
@@ -97,6 +101,7 @@ setTimeout(async () => {
 .bottom {
 
   z-index: 10;
+  position: absolute;
 
 
 }
@@ -105,6 +110,18 @@ setTimeout(async () => {
   position: absolute;
   left: 0;
   right: 0;
+}
+
+.ye {
+  position: absolute;
+  z-index: 10;
+  top: 190rpx
+}
+
+.ye2 {
+  position: absolute;
+  z-index: 50;
+  top: 0
 }
 
 .bottom-img {
