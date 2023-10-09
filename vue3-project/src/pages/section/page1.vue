@@ -63,7 +63,7 @@ async function trigger() {
   await sleep(DURATION)
 
   //跳转第二个页面
-
+  uni.navigateTo({url:'/pages/section/page2'})
 }
 
 setTimeout(async () => {
