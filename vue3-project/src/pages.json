@@ -6,12 +6,12 @@
 	// 		"navigationBarTitleText": "uni-app"
 	// 	}
 	// },
-		// {
-		// 	"path": "pages/section/page1",
-		// 	"style": {
-		// 		"navigationBarTitleText": "uni-app"
-		// 	}
-		// },
+		{
+			"path": "pages/section/page1",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
 		
 		{
 			"path": "pages/section/page2",
