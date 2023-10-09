@@ -21,11 +21,15 @@
 <script setup lang="ts">
 	import {
 		ref,
-		onMounted
+		onMounted,
+		onBeforeUnmount
 	} from "vue";
 	import {
 		getAnimation
 	} from '@/utils/until.js'
+	import {
+		sleep
+	} from '@/utils/sleep'
 	import title from '@/static/img/page2/title.png'
 	import head_bg from '@/static/img/page2/head_bg.png'
 	import to_right from '@/static/img/page2/to_right.png'
@@ -35,16 +39,23 @@
 	import xiongDa from '@/static/img/page2/xiong1.png'
 	import xiongEr from '@/static/img/page2/xiong2.png'
 	import or from '@/static/img/page2/or.png'
+	let timer1 = null,
+		tmer2 = null
 
 
-	onMounted(() => {
-		getAnimation(animationStep,animationData);
+	onMounted(async () => {
+		await getAnimation(animationStep, animationData);
+		await getAnimation(youliaoAnimation, animationData);
+		timer1 = setInterval(async () => {
+			await getAnimation(youliaoAnimation, animationData);
+			await getAnimation(zhiyuAnimation, animationData);
+		}, 3500)
+		getAnimation(zhiyuAnimation, animationData);
 	});
+	onBeforeUnmount(() => {
+		clearInterval()
+	})
 
-	const animationOption: UniApp.CreateAnimationOptions = {
-		duration: 3000,
-		timingFunction: "ease",
-	};
 	const flag = ref(0)
 	const animationData = ref({
 		title: "",
@@ -56,6 +67,73 @@
 		xiongEr: '',
 		or: ''
 	});
+	const youliaoAnimation = ref({
+		youliao: {
+			action: {
+				opacity: 1,
+				rotateZ: 15,
+				scaleX: 1.2,
+				scaleY: 1.2,
+			},
+			duration: 500,
+			sleep: 500,
+			key: "youliao"
+		},
+		youliao1: {
+			action: {
+				rotateZ: -15,
+				scaleX: 0.8,
+				scaleY: 0.8,
+			},
+			duration: 200,
+			sleep: 500,
+			key: 'youliao'
+		},
+		youliao2: {
+			action: {
+				rotateZ: 0,
+				scaleX: 1.0,
+				scaleY: 1.0,
+			},
+			duration: 200,
+			sleep: 500,
+			key: 'youliao'
+		},
+
+	})
+	const zhiyuAnimation = ref({
+		zhiyu: {
+			action: {
+				opacity: 1,
+				rotateZ: -15,
+				scaleX: 1.2,
+				scaleY: 1.2,
+			},
+			duration: 500,
+			sleep: 500,
+			key: "zhiyu"
+		},
+		zhiyu1: {
+			action: {
+				rotateZ: 15,
+				scaleX: 0.8,
+				scaleY: 0.8,
+			},
+			duration: 200,
+			sleep: 500,
+			key: 'zhiyu'
+		},
+		zhiyu2: {
+			action: {
+				rotateZ: 0,
+				scaleX: 1.0,
+				scaleY: 1.0,
+			},
+			duration: 200,
+			sleep: 500,
+			key: 'zhiyu'
+		},
+	})
 	const animationStep = ref({
 		titleShow: {
 			action: {
@@ -168,9 +246,9 @@
 				scaleX: 1.2,
 				scaleY: 1.2,
 			},
-			duration: 500,
+			duration: 400,
 			sleep: 500,
-			key: 'or'
+			key: 'or',
 		},
 		or1: {
 			action: {
@@ -178,29 +256,20 @@
 				scaleX: 0.8,
 				scaleY: 0.8,
 			},
-			duration:400,
-			sleep: 400,
+			duration: 200,
+			sleep: 500,
 			key: 'or'
 		},
 		or2: {
 			action: {
-				rotateZ: 1,
-				scaleX: 1,
-				scaleY: 1,
+				rotateZ: 0,
+				scaleX: 1.0,
+				scaleY: 1.0,
 			},
 			duration: 200,
-			sleep: 200,
+			sleep: 500,
 			key: 'or'
 		},
-		// or3: {
-		// 	action: {
-		// 		// scaleX: 1,
-		// 		// scaleY: 1,
-		// 		rotateZ:0
-		// 	},
-		// 	duration: 200,
-		// 	key: 'or'
-		// },
 	});
 
 
