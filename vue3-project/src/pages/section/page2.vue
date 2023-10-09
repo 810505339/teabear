@@ -1,17 +1,19 @@
 <template>
-	<view class="bg"></view>
-	<view class="head" :animation="animationData.title">
-		<image :src="title" mode="cover" class="title" />
-		<image :src="head_bg" mode="cover" class="title_bg" />
-	</view>
-	<image :src="youliao" mode="cover" class="text_youliao" :animation="animationData.youliao" />
-	<image :src="zhiyu" mode="cover" class="text_zhiyu" :animation="animationData.zhiyu" />
-	<image :src="to_right" mode="cover" class="to_right" :animation="animationData.toRight" />
-	<image :src="to_left" mode="cover" class="to_left" :animation="animationData.toLeft" />
-	<image :src="or" mode="cover" class="or" :animation="animationData.or" />
-	<view class="box">
-		<image :src="xiongDa" mode="cover" class="xiongDa" :animation="animationData.xiongDa" />
-		<image :src="xiongEr" mode="cover" class="xiongEr" :animation="animationData.xiongEr" />
+	<view class="bg" @click="onNext"></view>
+	<view :style="{display:flag==0?'block':'none'}">
+		<view class="head" :animation="animationData.title">
+			<image :src="title" mode="cover" class="title" />
+			<image :src="head_bg" mode="cover" class="title_bg" />
+		</view>
+		<image :src="youliao" mode="cover" class="text_youliao" :animation="animationData.youliao" />
+		<image :src="zhiyu" mode="cover" class="text_zhiyu" :animation="animationData.zhiyu" />
+		<image :src="to_right" mode="cover" class="to_right" :animation="animationData.toRight" @click="onNext" />
+		<image :src="to_left" mode="cover" class="to_left" :animation="animationData.toLeft" @click="onNext" />
+		<image :src="or" mode="cover" class="or" :animation="animationData.or" />
+		<view class="box">
+			<image :src="xiongDa" mode="cover" class="xiongDa" :animation="animationData.xiongDa" />
+			<image :src="xiongEr" mode="cover" class="xiongEr" :animation="animationData.xiongEr" />
+		</view>
 	</view>
 
 
@@ -21,6 +23,9 @@
 		ref,
 		onMounted
 	} from "vue";
+	import {
+		getAnimation
+	} from '@/utils/until.js'
 	import title from '@/static/img/page2/title.png'
 	import head_bg from '@/static/img/page2/head_bg.png'
 	import to_right from '@/static/img/page2/to_right.png'
@@ -33,14 +38,14 @@
 
 
 	onMounted(() => {
-		getAnimation(animationStep);
+		getAnimation(animationStep,animationData);
 	});
 
 	const animationOption: UniApp.CreateAnimationOptions = {
 		duration: 3000,
 		timingFunction: "ease",
 	};
-
+	const flag = ref(0)
 	const animationData = ref({
 		title: "",
 		toRight: '',
@@ -127,21 +132,21 @@
 			duration: 3000,
 			key: 'zhiyu'
 		},
-		xiongDa: {
-			action: {
-				translateX: '250rpx'
-			},
-			duration: 2000,
-			key: 'xiongDa'
-		},
-		xiongEr: {
-			action: {
-				translateX: '-250rpx'
-			},
-			duration: 2000,
-			sleep: 1500,
-			key: 'xiongEr'
-		},
+		// xiongDa: {
+		// 	action: {
+		// 		translateX: '250rpx'
+		// 	},
+		// 	duration: 2000,
+		// 	key: 'xiongDa'
+		// },
+		// xiongEr: {
+		// 	action: {
+		// 		translateX: '-250rpx'
+		// 	},
+		// 	duration: 2000,
+		// 	sleep: 1500,
+		// 	key: 'xiongEr'
+		// },
 		xiongDa1: {
 			action: {
 				translateX: '215rpx'
@@ -151,7 +156,7 @@
 		},
 		xiongEr2: {
 			action: {
-				translateX: '-217rpx'
+				translateX: '-215rpx'
 			},
 			duration: 500,
 			key: 'xiongEr'
@@ -173,13 +178,13 @@
 				scaleX: 0.8,
 				scaleY: 0.8,
 			},
-			duration: 400,
+			duration:400,
 			sleep: 400,
 			key: 'or'
 		},
 		or2: {
 			action: {
-				rotateZ:0,
+				rotateZ: 1,
 				scaleX: 1,
 				scaleY: 1,
 			},
@@ -197,24 +202,11 @@
 		// 	key: 'or'
 		// },
 	});
-	const getAnimation = (obj) => {
-		let sleep = 0
-		Object.values(obj.value).forEach((t, i) => {
 
-			const timer = setTimeout(() => {
-				const animation = uni.createAnimation({
-					duration: t.duration,
-					timingFunction: "ease",
-				});
-				Object.entries(t.action).forEach(_t => {
-					animation[_t[0]](_t[1]).step()
-				})
-				animationData.value[t.key] = animation.export();
-				clearTimeout(timer);
-			}, sleep)
 
-			sleep = t.sleep ? sleep + t.sleep : sleep
-		})
+	const onNext = (type) => {
+		console.log(1111, type)
+		flag.value = type
 	}
 </script>
 <style>
