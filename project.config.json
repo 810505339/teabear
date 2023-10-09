@@ -2,7 +2,7 @@
   "miniprogramRoot": "vue3-project/dist/dev/mp-weixin/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -10,7 +10,7 @@
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -35,12 +35,9 @@
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
     "minifyWXML": true,
-    "condition": false,
-    "ignoreDevUnusedFiles": false,
-    "ignoreUploadUnusedFiles": false
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false
   },
   "appid": "wx39b41c60d5d381bd",
   "projectname": "quickstart-wx-cloud",
