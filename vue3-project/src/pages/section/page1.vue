@@ -60,10 +60,14 @@ async function trigger() {
   console.log(`动画触发`)
   getAnimation(-Y, Y)
   //等待动画执行完毕
-  await sleep(DURATION)
+  await sleep(1000)
 
   //跳转第二个页面
-  uni.navigateTo({url:'/pages/section/page2'})
+  uni.navigateTo({
+    url: '/pages/section/page2',
+    animationType: 'none',
+    animationDuration: 200
+  })
 }
 
 setTimeout(async () => {
@@ -77,6 +81,7 @@ setTimeout(async () => {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  background-color: #FEFFE8;
 }
 
 .full {
