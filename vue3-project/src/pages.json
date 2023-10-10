@@ -6,31 +6,31 @@
 	// 		"navigationBarTitleText": "uni-app"
 	// 	}
 	// },
-		// {
-		// 	"path": "pages/section/page1",
-		// 	"style": {
-		// 		"navigationBarTitleText": "uni-app"
-		// 	}
-		// },
+		{
+			"path": "pages/section/page1",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
 		
-		// {
-		// 	"path": "pages/section/page2",
-		// 	"style": {
-		// 		"navigationBarTitleText": "uni-app"
-		// 	}
-		// },
-		// {
-		// 	"path": "pages/section/page3",
-		// 	"style": {
-		// 		"navigationBarTitleText": "uni-app"
-		// 	}
-		// },
-		// {
-		// 	"path": "pages/section/page4",
-		// 	"style": {
-		// 		"navigationBarTitleText": "uni-app"
-		// 	}
-		// },
+		{
+			"path": "pages/section/page2",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/section/page3",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/section/page4",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
 		{
 			"path": "pages/section/page5",
 			"style": {
