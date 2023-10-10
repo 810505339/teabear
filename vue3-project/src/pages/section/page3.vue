@@ -3,7 +3,8 @@
 		<image :src="imageMap.bg" mode="cover" class="bg" />
 		<image :src="imageMap.model_box" mode="cover" class="model_box" :animation="animationData.model_box" />
 		<image :src="imageMap.text_1" mode="cover" class="text_1" :animation="animationData.text_1" />
-		<image :src="imageMap.text_2" mode="cover" class="text_2" :animation="animationData.text_2" />
+		<image :src="imageMap.text_2" mode="cover" :style="{width:type?'329rpx':'448rpx'}" class="text_2"
+			:animation="animationData.text_2" />
 		<image :src="imageMap.text_3" mode="cover" class="text_3" :animation="animationData.text_3" />
 		<image :src="imageMap.ticket" mode="cover" class="ticket" :animation="animationData.ticket" />
 		<image :src="imageMap.tips" mode="cover" class="tips" :animation="animationData.tips" />
@@ -49,9 +50,10 @@
 		onLoad
 	} from "@dcloudio/uni-app";
 	let timer1: any = null;
-	
+
 	onLoad((option) => {
 		const v = option?.flag == 2
+		type.value=v
 		const data = {
 			bg: v ? bg1 : bg2,
 			model_box: v ? model_box1 : model_box2,
