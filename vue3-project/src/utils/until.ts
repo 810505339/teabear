@@ -1,4 +1,4 @@
-export const getAnimation = (obj, animationData) => {
+export const getAnimation = (obj: any, animationData: any) => {
 	return new Promise((re) => {
 		let sleep = 0
 		const item = Object.values(obj.value)

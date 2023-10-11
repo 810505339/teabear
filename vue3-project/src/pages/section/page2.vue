@@ -59,7 +59,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { getAnimation } from "@/utils/until.js";
+import { getAnimation } from "@/utils/until";
 import { sleep } from "@/utils/sleep";
 import title from "@/static/img/page2/title.png";
 import head_bg from "@/static/img/page2/head_bg.png";
