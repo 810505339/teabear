@@ -356,7 +356,7 @@ const onNext = (type: any) => {
   position: absolute;
   top: 341rpx;
   left: -100%;
-  background: #99b4d3;
+  background: #feffe8;
   -webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
   clip-path: polygon(0 0, 250% 0, 0% 100%, 0% 100%);
 }
@@ -367,7 +367,7 @@ const onNext = (type: any) => {
   position: absolute;
   top: 685rpx;
   left: 100%;
-  background: #99b4d3;
+  background: #feffe8;
   -webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
   clip-path: polygon(100% 0%, 100% 0%, -150% 100%, 100% 100%);
 }
