@@ -1,6 +1,6 @@
 <template>
   <view class="main">
-    <view class="full" @click="trigger" v-show="show"></view>
+    <view class="full" @click.once="trigger" v-show="show"></view>
     <view class="box_warper">
       <view class="box top" :animation="animationData.top">
         <image :src="topBg" class="top-img" />
@@ -17,15 +17,15 @@
   </view>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { sleep } from '@/utils/sleep'
 import topBg from '@/static/img/page1/top-bg.png'
 import bottomBg from '@/static/img/page1/bottom-bg.png'
-
-const yePng='http://s2ccxxdhp.bkt.clouddn.com/gif/ye.gif'
-const ye2Png='http://s2ccxxdhp.bkt.clouddn.com/gif/ye2.gif'
-const ye3Png='http://s2ccxxdhp.bkt.clouddn.com/gif/ye3.gif'
-const greenBar='http://s2ccxxdhp.bkt.clouddn.com/gif/greenbar.gif'
+import { onShow } from "@dcloudio/uni-app"
+const yePng = 'http://s2ccxxdhp.bkt.clouddn.com/gif/ye.gif'
+const ye2Png = 'http://s2ccxxdhp.bkt.clouddn.com/gif/ye2.gif'
+const ye3Png = 'http://s2ccxxdhp.bkt.clouddn.com/gif/ye3.gif'
+const greenBar = 'http://s2ccxxdhp.bkt.clouddn.com/gif/greenbar.gif'
 
 //熊
 
@@ -48,7 +48,7 @@ async function getAnimation(top: number, bottom: number) {
   const topAnimation = uni.createAnimation(animationOption)
   const bottomAnimation = uni.createAnimation(animationOption)
   topAnimation.translateY(top).step()
-  bottomAnimation.scale(2, 2).translateY(bottom).step()
+  bottomAnimation.translateY(bottom).step()
   animationData.value.top = topAnimation.export()
   animationData.value.bottom = bottomAnimation.export()
 }
@@ -72,6 +72,13 @@ async function trigger() {
 setTimeout(async () => {
   show.value = true
 }, 0)
+
+onShow(() => {
+  getAnimation(0, 0)
+})
+
+
+
 
 </script>
 
