@@ -38,6 +38,7 @@
     "minifyWXML": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
+    "ignoreDevUnusedFiles": false,
     "ignoreUploadUnusedFiles": false
   },
   "appid": "wx39b41c60d5d381bd",
