@@ -202,7 +202,6 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
-    // sleep: 200,
     key: "text_1",
   },
   text_1_move: {
@@ -218,7 +217,6 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
-    // sleep: 200,
     key: "text_2",
   },
   text_2_move: {
@@ -234,7 +232,6 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
-    // sleep:200,
     key: "text_3",
   },
   text_3_move: {
