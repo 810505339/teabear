@@ -21,14 +21,13 @@ import { ref } from 'vue';
 import { sleep } from '@/utils/sleep'
 import topBg from '@/static/img/page1/top-bg.png'
 import bottomBg from '@/static/img/page1/bottom-bg.png'
-import yePng from '@/static/img/page1/ye.gif'
-import ye2Png from '@/static/img/page1/ye2.gif'
-import ye3Png from '@/static/img/page1/ye3.gif'
 
-
+const yePng='http://s2ccxxdhp.bkt.clouddn.com/gif/ye.gif'
+const ye2Png='http://s2ccxxdhp.bkt.clouddn.com/gif/ye2.gif'
+const ye3Png='http://s2ccxxdhp.bkt.clouddn.com/gif/ye3.gif'
+const greenBar='http://s2ccxxdhp.bkt.clouddn.com/gif/greenbar.gif'
 
 //熊
-import greenBar from '@/static/img/page1/greenbar.gif'
 
 
 const DURATION = 3500

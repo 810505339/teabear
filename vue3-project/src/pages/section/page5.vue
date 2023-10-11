@@ -1,5 +1,6 @@
 <template>
   <view class="box-wrap">
+    <!-- <button open-type="share" class="share">分享</button> -->
     <view class="box">
       <image :src="bg" class="box-img" />
       <image :src="bearBg" class="bear-bg" />
