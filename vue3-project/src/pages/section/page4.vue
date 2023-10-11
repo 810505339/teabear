@@ -1,10 +1,42 @@
 <template>
   <view class="box">
-    <image :src="bg" class="box-img" />
+    <!-- <image :src="bg" class="box-img" /> -->
+    <button open-type="share">获取专属搜茶令</button>
+    <text>{{ msg }}</text>
   </view>
 </template>
 <script setup lang="ts">
 import bg from '@/static/img/page4/bg.png'
+import { onShareAppMessage, onShow } from '@dcloudio/uni-app'
+import { ref } from 'vue'
+
+const msg = ref('没分享')
+
+onShareAppMessage((option) => {
+  if (option.from === 'button') {// 来自页面内分享按钮
+    handleShare()
+  }
+  return {
+    title: '京牌搜茶令 全城寻找理想暖友',
+    path: '/pages/section/page1',
+    imageUrl: '',
+  }
+})
+
+
+
+//
+function handleShare() {
+  //分享成功之后
+  setTimeout(() => {
+    uni.navigateTo({
+      url: `/pages/section/login`,
+      animationType: "none",
+      animationDuration: 200,
+    });
+  }, 100)
+}
+
 </script>
 
 <style scoped>
