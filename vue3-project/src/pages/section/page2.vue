@@ -60,7 +60,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { getAnimation } from "@/utils/until";
-import { sleep } from "@/utils/sleep";
 import title from "@/static/img/page2/title.png";
 import head_bg from "@/static/img/page2/head_bg.png";
 import to_right from "@/static/img/page2/to_right.png";
@@ -97,7 +96,7 @@ const animationData = ref({
   xiongEr: "",
   or: "",
 });
-const youliaoAnimation = ref({
+const youliaoAnimation = {
   youliao: {
     action: {
       opacity: 1,
@@ -129,8 +128,8 @@ const youliaoAnimation = ref({
     sleep: 500,
     key: "youliao",
   },
-});
-const zhiyuAnimation = ref({
+};
+const zhiyuAnimation = {
   zhiyu: {
     action: {
       opacity: 1,
@@ -162,8 +161,8 @@ const zhiyuAnimation = ref({
     sleep: 500,
     key: "zhiyu",
   },
-});
-const animationStep = ref({
+};
+const animationStep = {
   titleShow: {
     action: {
       opacity: 1,
@@ -299,12 +298,12 @@ const animationStep = ref({
     sleep: 500,
     key: "or",
   },
-});
+};
 
 const onNext = (type: any) => {
   flag.value = type;
 
-  //跳转第领券页面
+  //跳转领券页面
   uni.navigateTo({
     url: "/pages/section/page3?flag=" + type,
     animationType: "none",
