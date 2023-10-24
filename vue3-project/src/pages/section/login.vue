@@ -4,7 +4,7 @@
 			<view>昵称：</view>
 			<input type="nickname" name="nickname" placeholder="请输入昵称" @input="bindinput" />
 		</view>
-		<button type="primary" style="margin-top: 40rpx;margin-bottom: 20rpx;" @click="onSubmit">提交</button>
+		<button style="margin-top: 40rpx;margin-bottom: 20rpx;" @click="onSubmit">提交</button>
 
 	</view>
 </template>

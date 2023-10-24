@@ -270,7 +270,8 @@ const onNext = () => {
 
 
   uni.navigateToMiniProgram({ //这里用uniapp的跳转方法，原生应该是wx.navigateToMiniProgram
-		  appId: 'wxc40b30e697a8a0a2',//这里的appid为目标小程序的appid，此处为携程小程序
+		  appId: 'wxc40b30e697a8a0a2',
+      path:'pages/promotion-coupon/promotion-coupon?id=69735',//这里的appid为目标小程序的appid，此处为携程小程序
 		  success(res) {
 		  		// 打开成功
 			   console.log(res)
