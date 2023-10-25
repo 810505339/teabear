@@ -45,6 +45,34 @@
       :animation="animationData.detail"
     />
     <image
+      :src="imageMap.cup"
+      mode="cover"
+      class="cup"
+      :style="
+        type
+          ? {}
+          : {
+              width: '98rpx',
+              height: '128rpx',
+            }
+      "
+      :animation="animationData.cup"
+    />
+    <image
+      :src="imageMap.leaf"
+      mode="cover"
+      class="leaf"
+      :style="
+        type
+          ? {}
+          : {
+              width: '246rpx',
+              height: '254rpx',
+            }
+      "
+      :animation="animationData.leaf"
+    />
+    <image
       :src="imageMap.btn"
       mode="cover"
       class="btn"
@@ -66,6 +94,8 @@ import ticket1 from "@/static/img/page3/ticket.png";
 import tips1 from "@/static/img/page3/tips.png";
 import detail1 from "@/static/img/page3/detail.png";
 import btn1 from "@/static/img/page3/btn.png";
+import leaf1 from "@/static/img/page3/leaf.png";
+import cup1 from "@/static/img/page3/cup.png";
 //棕色
 import bg2 from "@/static/img/page3/bg2.png";
 import model_box2 from "@/static/img/page3/model_box2.png";
@@ -76,6 +106,8 @@ import ticket2 from "@/static/img/page3/ticket2.png";
 import tips2 from "@/static/img/page3/tips2.png";
 import detail2 from "@/static/img/page3/detail2.png";
 import btn2 from "@/static/img/page3/btn2.png";
+import leaf2 from "@/static/img/page3/leaf2.png";
+import cup2 from "@/static/img/page3/cup2.png";
 
 import { onLoad } from "@dcloudio/uni-app";
 let timer1: any = null;
@@ -93,9 +125,11 @@ onLoad((option) => {
     tips: v ? tips1 : tips2,
     detail: v ? detail1 : detail2,
     btn: v ? btn1 : btn2,
+    leaf: v ? leaf1 : leaf2,
+    cup: v ? cup1 : cup2,
   };
-  Object.entries(data).forEach((t: any) => {
-    imageMap.value[t[0]] = data[t[0]];
+  Object.keys(data).forEach((t: any) => {
+    imageMap.value[t] = data[t];
   });
 });
 onMounted(async () => {
@@ -110,15 +144,15 @@ onBeforeUnmount(() => {
 
 const type = ref(false);
 const imageMap = ref<any>({
-  bg: bg2,
-  model_box: model_box2,
-  text_1: text_12,
-  text_2: text_22,
-  text_3: text_32,
-  ticket: ticket2,
-  tips: tips2,
-  detail: detail2,
-  btn: btn2,
+  // bg: bg2,
+  // model_box: model_box2,
+  // text_1: text_12,
+  // text_2: text_22,
+  // text_3: text_32,
+  // ticket: ticket2,
+  // tips: tips2,
+  // detail: detail2,
+  // btn: btn2,
 });
 const btnAnimationData = {
   btn1: {
@@ -162,6 +196,8 @@ const animationData = ref({
   tips: "",
   detail: "",
   btn: "",
+  cup: "",
+  leaf: "",
 });
 
 const animationStep = {
@@ -261,26 +297,41 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
-    sleep: 1000,
+    // sleep: 1000,
     key: "btn",
+  },
+  cup: {
+    action: {
+      opacity: 1,
+    },
+    duration: 1000,
+    key: "cup",
+  },
+  leaf: {
+    action: {
+      opacity: 1,
+    },
+    duration: 1000,
+    sleep: 1000,
+    key: "leaf",
   },
 };
 const onNext = () => {
   //跳转地图页面
 
-
-  uni.navigateToMiniProgram({ //这里用uniapp的跳转方法，原生应该是wx.navigateToMiniProgram
-		  appId: 'wxc40b30e697a8a0a2',
-      path:'pages/promotion-coupon/promotion-coupon?id=69735',//这里的appid为目标小程序的appid，此处为携程小程序
-		  success(res) {
-		  		// 打开成功
-			   console.log(res)
-		  },
-		  fail(err){
-		  		// 打开失败	
-			  console.log(err)
-		  }
-		})
+  uni.navigateToMiniProgram({
+    //这里用uniapp的跳转方法，原生应该是wx.navigateToMiniProgram
+    appId: "wxc40b30e697a8a0a2",
+    path: "pages/promotion-coupon/promotion-coupon?id=69735", //这里的appid为目标小程序的appid，此处为携程小程序
+    success(res) {
+      // 打开成功
+      console.log(res);
+    },
+    fail(err) {
+      // 打开失败
+      console.log(err);
+    },
+  });
 
   uni.navigateTo({
     url: "/pages/section/page4",
@@ -361,10 +412,10 @@ const onNext = () => {
 }
 
 .detail {
-  width: 431rpx;
-  height: 161rpx;
+  width: 275rpx;
+  height: 145rpx;
   position: absolute;
-  top: 1097rpx;
+  top: 1143rpx;
   left: 20rpx;
   opacity: 0;
 }
@@ -375,6 +426,22 @@ const onNext = () => {
   position: absolute;
   top: 1140rpx;
   left: 486rpx;
+  opacity: 0;
+}
+.cup {
+  width: 89rpx;
+  height: 90rpx;
+  position: absolute;
+  top: 1090rpx;
+  left: 353rpx;
+  opacity: 0;
+}
+.leaf {
+  width: 200rpx;
+  height: 190rpx;
+  position: absolute;
+  top: 406rpx;
+  left: 18rpx;
   opacity: 0;
 }
 </style>

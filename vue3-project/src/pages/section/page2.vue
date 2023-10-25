@@ -1,9 +1,10 @@
 <template>
-  <view class="bg">
+  <view class="main">
+    <image :src="bg" mode="cover" class="bg" />
     <view>
       <view class="head" :animation="animationData.title">
-        <image :src="title" mode="cover" class="title" />
-        <image :src="head_bg" mode="cover" class="title_bg" />
+        <image :src="log" mode="cover" class="log" />
+        <image :src="slogan" mode="cover" class="slogan" />
       </view>
       <image
         :src="youliao"
@@ -12,9 +13,21 @@
         :animation="animationData.youliao"
       />
       <image
+        :src="youliao_bg"
+        mode="cover"
+        class="youliao_bg"
+        :animation="animationData.youliao"
+      />
+      <image
         :src="zhiyu"
         mode="cover"
         class="text_zhiyu"
+        :animation="animationData.zhiyu"
+      />
+      <image
+        :src="zhiyu_bg"
+        mode="cover"
+        class="zhiyu_bg"
         :animation="animationData.zhiyu"
       />
       <image
@@ -54,21 +67,66 @@
           :animation="animationData.xiongEr"
         />
       </view>
+      <image
+        :src="leaf_1"
+        mode="cover"
+        class="leaf_1"
+        :animation="animationData.leaf_1"
+      />
+      <image
+        :src="leaf_2"
+        mode="cover"
+        class="leaf_2"
+        :animation="animationData.leaf_2"
+      />
+      <image
+        :src="leaf_3"
+        mode="cover"
+        class="leaf_3"
+        :animation="animationData.leaf_3"
+      />
+      <image
+        :src="leaf_4"
+        mode="cover"
+        class="leaf_4"
+        :animation="animationData.leaf_4"
+      />
+      <image
+        :src="leaf_5"
+        mode="cover"
+        class="leaf_5"
+        :animation="animationData.leaf_5"
+      />
+      <image
+        :src="leaf_6"
+        mode="cover"
+        class="leaf_6"
+        :animation="animationData.leaf_6"
+      />
     </view>
   </view>
 </template>
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { getAnimation } from "@/utils/until";
-import title from "@/static/img/page2/title.png";
-import head_bg from "@/static/img/page2/head_bg.png";
+import bg from "@/static/img/page2/bg.png";
+import log from "@/static/img/page2/log.png";
+import slogan from "@/static/img/page2/slogan.png";
 import to_right from "@/static/img/page2/to_right.png";
 import to_left from "@/static/img/page2/to_left.png";
 import youliao from "@/static/img/page2/youliao.png";
 import zhiyu from "@/static/img/page2/zhiyu.png";
+import youliao_bg from "@/static/img/page2/youliao_bg.png";
+import zhiyu_bg from "@/static/img/page2/zhiyu_bg.png";
 import xiongDa from "@/static/img/page2/xiong1.png";
 import xiongEr from "@/static/img/page2/xiong2.png";
 import or from "@/static/img/page2/or.png";
+import leaf_1 from "@/static/img/page2/leaf_1.png";
+import leaf_2 from "@/static/img/page2/leaf_2.png";
+import leaf_3 from "@/static/img/page2/leaf_3.png";
+import leaf_4 from "@/static/img/page2/leaf_4.png";
+import leaf_5 from "@/static/img/page2/leaf_5.png";
+import leaf_6 from "@/static/img/page2/leaf_6.png";
 let timer1: any = null;
 
 onMounted(async () => {
@@ -95,6 +153,12 @@ const animationData = ref({
   xiongDa: "",
   xiongEr: "",
   or: "",
+  leaf_1: "",
+  leaf_2: "",
+  leaf_3: "",
+  leaf_4: "",
+  leaf_5: "",
+  leaf_6: "",
 });
 const youliaoAnimation = {
   youliao: {
@@ -295,8 +359,50 @@ const animationStep = {
       scaleY: 1.0,
     },
     duration: 200,
-    sleep: 500,
+    // sleep: 500,
     key: "or",
+  },
+  leaf_1: {
+    action: {
+      opacity: 1,
+    },
+    duration: 3000,
+    key: "leaf_1",
+  },
+  leaf_2: {
+    action: {
+      opacity: 1,
+    },
+    duration: 3000,
+    key: "leaf_2",
+  },
+  leaf_3: {
+    action: {
+      opacity: 1,
+    },
+    duration: 3000,
+    key: "leaf_3",
+  },
+  leaf_4: {
+    action: {
+      opacity: 1,
+    },
+    duration: 3000,
+    key: "leaf_4",
+  },
+  leaf_5: {
+    action: {
+      opacity: 1,
+    },
+    duration: 3000,
+    key: "leaf_5",
+  },
+  leaf_6: {
+    action: {
+      opacity: 1,
+    },
+    duration: 3000,
+    key: "leaf_6",
   },
 };
 
@@ -312,12 +418,21 @@ const onNext = (type: any) => {
 };
 </script>
 <style>
+.main {
+  width: 100%;
+  min-height: 100vh;
+  height: 1333rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .bg {
   width: 100%;
-  height: 100vh;
-  background-color: #feffe8;
-  position: fixed;
+  height: 100%;
+  position: absolute;
   top: 0;
+  left: 0;
 }
 
 .head {
@@ -328,24 +443,23 @@ const onNext = (type: any) => {
   width: 676rpx;
   height: 508rpx;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
 }
 
-.title {
-  position: absolute;
-  top: calc((100% - 254rpx - 220rpx) / 2);
-  left: calc((100% - 312rpx) / 2);
-  width: 312rpx;
-  height: 254rpx;
+.log {
+  width: 98rpx;
+  height: 117rpx;
   text-align: center;
   z-index: 2;
 }
 
-.title_bg {
-  position: absolute;
-  top: calc((100% - 508rpx) / 2);
-  left: calc((100% - 676rpx) / 2);
-  width: 676rpx;
-  height: 508rpx;
+.slogan {
+  margin-top: 20rpx;
+  width: 381rpx;
+  height: 136rpx;
   text-align: center;
 }
 
@@ -355,7 +469,7 @@ const onNext = (type: any) => {
   position: absolute;
   top: 341rpx;
   left: -100%;
-  background: #feffe8;
+  /* background: #feffe8; */
   -webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
   clip-path: polygon(0 0, 250% 0, 0% 100%, 0% 100%);
 }
@@ -366,7 +480,7 @@ const onNext = (type: any) => {
   position: absolute;
   top: 685rpx;
   left: 100%;
-  background: #feffe8;
+  /* background: #feffe8; */
   -webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
   clip-path: polygon(100% 0%, 100% 0%, -150% 100%, 100% 100%);
 }
@@ -388,28 +502,44 @@ const onNext = (type: any) => {
 }
 .text_youliao {
   position: absolute;
-  top: 461rpx;
-  left: 223rpx;
-  font-size: 100rpx;
+  top: 481rpx;
+  left: 261rpx;
   color: #825d45;
   z-index: 2;
   opacity: 0;
-  width: 447rpx;
-  height: 139rpx;
+  width: 418rpx;
+  height: 110rpx;
 }
-
+.youliao_bg {
+  position: absolute;
+  top: 552rpx;
+  left: 261rpx;
+  color: #825d45;
+  z-index: 1;
+  opacity: 0;
+  width: 424rpx;
+  height: 45rpx;
+}
 .text_zhiyu {
-  font-size: 100rpx;
   color: #b1d026;
   position: absolute;
-  top: 956rpx;
-  right: 225rpx;
+  top: 976rpx;
+  right: 247rpx;
   z-index: 2;
   opacity: 0;
-  width: 447rpx;
-  height: 145rpx;
+  width: 418rpx;
+  height: 110rpx;
 }
-
+.zhiyu_bg {
+  color: #b1d026;
+  position: absolute;
+  top: 1042rpx;
+  right: 244rpx;
+  z-index: 1;
+  opacity: 0;
+  width: 424rpx;
+  height: 45rpx;
+}
 .or {
   width: 292rpx;
   height: 171rpx;
@@ -420,7 +550,7 @@ const onNext = (type: any) => {
 }
 
 .box {
-  position: fixed;
+  position: absolute;
   left: 37rpx;
   width: 673rpx;
   height: 100vh;
@@ -442,5 +572,60 @@ const onNext = (type: any) => {
   position: absolute;
   top: 799rpx;
   right: calc(36rpx - 250rpx);
+}
+
+.leaf_1 {
+  width: 202rpx;
+  height: 213rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+}
+.leaf_2 {
+  width: 115rpx;
+  height: 107rpx;
+  position: absolute;
+  top: 183rpx;
+  left: 609rpx;
+  z-index: 5;
+  opacity: 0;
+}
+.leaf_3 {
+  width: 68rpx;
+  height: 65rpx;
+  position: absolute;
+  top: 301rpx;
+  left: 607rpx;
+  z-index: 5;
+  opacity: 0;
+}
+.leaf_4 {
+  width: 256rpx;
+  height: 241rpx;
+  position: absolute;
+  top: 1067rpx;
+  left: 22rpx;
+  z-index: 5;
+  opacity: 0;
+}
+.leaf_5 {
+  width: 105rpx;
+  height: 113rpx;
+  position: absolute;
+  top: 1188rpx;
+  left: 399rpx;
+  z-index: 5;
+  opacity: 0;
+}
+.leaf_6 {
+  width: 200rpx;
+  height: 206rpx;
+  position: absolute;
+  top: 1127rpx;
+  left: 524rpx;
+  z-index: 5;
+  opacity: 0;
 }
 </style>
