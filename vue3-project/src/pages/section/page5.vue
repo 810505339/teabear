@@ -1,7 +1,6 @@
 <template>
   <view class="box-wrap">
-    <!-- <button open-type="share" class="share">分享</button> -->
-    <view class="box">
+    <view class="box" :style="{ display: show ? 'block' : 'none' }">
       <image :src="bg" class="box-img" />
       <image :src="bearBg" class="bear-bg" />
       <image :src="bearHeaderBg" class="bear-header-bg" />
@@ -12,12 +11,20 @@
   </view>
 </template>
 <script setup lang="ts">
-import bg from '@/static/img/page5/bg.png'
-import bearBg from '@/static/img/page5/bear-bg.png'
-import bearHeaderBg from '@/static/img/page5/bear-header.png'
-import idCard from '@/static/img/page5/id-card.png'
-import sign from '@/static/img/page5/sign.png'
-import bearBottom from '@/static/img/page5/bear-bottom.png'
+import { ref } from "vue";
+import { onLoad } from "@dcloudio/uni-app";
+import bg from "@/static/img/page5/bg.png";
+import bearBg from "@/static/img/page5/bear-bg.png";
+import bearHeaderBg from "@/static/img/page5/bear-header.png";
+import idCard from "@/static/img/page5/id-card.png";
+import sign from "@/static/img/page5/sign.png";
+import bearBottom from "@/static/img/page5/bear-bottom.png";
+onLoad((option) => {
+  if (option?.ok) {
+    show.value = true;
+  }
+});
+const show = ref(false);
 </script>
 
 <style scoped>
@@ -33,7 +40,6 @@ import bearBottom from '@/static/img/page5/bear-bottom.png'
   right: 0;
   bottom: 0;
   top: 0;
-
 }
 
 image {
@@ -56,7 +62,6 @@ image {
   right: 100rpx;
   width: 550rpx;
   height: 550rpx;
-
 }
 
 .id-card {
@@ -75,7 +80,6 @@ image {
   width: 257rpx;
   height: 208rpx;
   bottom: 467rpx;
-
 }
 
 .bea-bottom {
@@ -85,6 +89,5 @@ image {
   width: 328rpx;
   height: 338rpx;
   bottom: 100rpx;
- 
 }
 </style>

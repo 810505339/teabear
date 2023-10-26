@@ -31,6 +31,14 @@
       mode="cover"
       class="ticket"
       :animation="animationData.ticket"
+      @click="redirect"
+      :style="
+        type
+          ? {
+              width: '758rpx',
+            }
+          : {}
+      "
     />
     <image
       :src="imageMap.tips"
@@ -79,6 +87,15 @@
       :animation="animationData.btn"
       @click="onNext"
     />
+    <view
+      class="userNumber"
+      :style="{
+        color: type ? '#9db01f' : '#AD7559',
+        background: type ? '#FFFFE3' : '#FFF6E1',
+      }"
+      :animation="animationData.userNumber"
+      >{{ userNumber }}</view
+    >
   </view>
 </template>
 <script setup lang="ts">
@@ -133,6 +150,7 @@ onLoad((option) => {
   });
 });
 onMounted(async () => {
+  findUser();
   await getAnimation(animationStep, animationData);
   timer1 = setInterval(async () => {
     await getAnimation(btnAnimationData, animationData);
@@ -141,7 +159,52 @@ onMounted(async () => {
 onBeforeUnmount(() => {
   clearInterval(timer1);
 });
-
+function padWithZeros(number) {
+  var str = number.toString();
+  while (str.length < 4) {
+    str = "0" + str;
+  }
+  return str;
+}
+async function findUser() {
+  uni.showLoading();
+  const res = await wx.cloud.callFunction({
+    name: "userManagerFun",
+    config: {
+      env: "test-3gszsltre96027e3",
+    },
+    data: {
+      type: "findUser",
+    },
+  });
+  if (res?.result?.success) {
+    const num = res?.result?.user?.index;
+    //大于1000活动截止
+    if (num > 1000) {
+      isOver.value = false;
+      uni.showModal({
+        title: "提示",
+        content: "抱歉 该券已经领取完了~",
+        confirmText: "确认",
+        showCancel: false,
+        confirmColor: type.value ? "#C7E12D" : "#FFC127",
+      });
+    } else {
+      isOver.value = true;
+    }
+    userNumber.value = padWithZeros(num);
+  } else {
+    uni.showToast({
+      title: "获取用户ID失败",
+      icon: "error",
+      duration: 2000,
+    });
+  }
+  console.log(res);
+  uni.hideLoading();
+}
+const userNumber = ref("");
+const isOver = ref(true);
 const type = ref(false);
 const imageMap = ref<any>({
   // bg: bg2,
@@ -198,6 +261,7 @@ const animationData = ref({
   btn: "",
   cup: "",
   leaf: "",
+  userNumber: "",
 });
 
 const animationStep = {
@@ -224,6 +288,13 @@ const animationStep = {
     duration: 3000,
     sleep: 1000,
     key: "model_box",
+  },
+  userNumber: {
+    action: {
+      opacity: 1,
+    },
+    duration: 500,
+    key: "userNumber",
   },
   model_box1: {
     action: {
@@ -316,9 +387,9 @@ const animationStep = {
     key: "leaf",
   },
 };
-const onNext = () => {
-  //跳转地图页面
-
+const redirect = () => {
+  if (!isOver.value) return;
+  console.log(1);
   uni.navigateToMiniProgram({
     //这里用uniapp的跳转方法，原生应该是wx.navigateToMiniProgram
     appId: "wxc40b30e697a8a0a2",
@@ -332,7 +403,9 @@ const onNext = () => {
       console.log(err);
     },
   });
-
+};
+const onNext = () => {
+  //跳转地图页面
   uni.navigateTo({
     url: "/pages/section/page4",
     animationType: "none",
@@ -395,7 +468,7 @@ const onNext = () => {
 }
 
 .ticket {
-  width: 100%;
+  width: 752rpx;
   height: 713rpx;
   position: absolute;
   top: 411rpx;
@@ -442,6 +515,17 @@ const onNext = () => {
   position: absolute;
   top: 406rpx;
   left: 18rpx;
+  opacity: 0;
+}
+.userNumber {
+  font-size: 25rpx;
+  transform: rotateZ(15deg);
+  position: absolute;
+  width: 65rpx;
+  height: 30rpx;
+  top: 1020rpx;
+  left: 450rpx;
+  font-weight: bold;
   opacity: 0;
 }
 </style>
