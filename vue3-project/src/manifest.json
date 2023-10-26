@@ -54,7 +54,6 @@
         "setting": {
             "urlCheck": false
         },
-        "navigateToMiniProgramAppIdList": ["wxc40b30e697a8a0a2"],
         "cloudfunctionRoot": "cloudfunctions/",
         "usingComponents": true
     },
