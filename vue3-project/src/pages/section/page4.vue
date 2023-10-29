@@ -1,16 +1,9 @@
 <template>
   <view class="main">
-    <image
-      :src="`/static/img/page4/${item}.png`"
-      :class="item"
-      v-for="(item, index) in imageList"
-      :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }"
-      :key="index"
-      @click="
+    <image :src="`/static/img/page4/${item}.png`" :class="item" v-for="(item, index) in imageList"
+      :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }" :key="index" @click="
         item == 'rule' || item == 'rule_model' ? showModel() : closeModel(item)
-      "
-      :animation="animationData[item]"
-    />
+        " :animation="animationData[item]" />
     <button open-type="share" class="share"></button>
   </view>
 </template>
@@ -20,13 +13,19 @@ import { ref, onMounted, onBeforeUnmount, reactive } from "vue";
 import { getAnimation } from "@/utils/until";
 
 onShareAppMessage((res) => {
-//   if (res.from === "button") {
-//     // 来自页面内分享按钮
-//     console.log(11, res.target);
-//   }
+  //   if (res.from === "button") {
+  //     // 来自页面内分享按钮
+  //     console.log(11, res.target);
+  //   }
+
+  uni.navigateTo({
+    url: '/pages/section/page5',
+    animationType: 'none',
+    animationDuration: 200
+  })
   return {
     title: "生成搜茶令",
-    path: "/pages/section/page5?ok=true",
+    path: "/pages/section/page1?ok=true",
   };
 });
 
@@ -400,7 +399,7 @@ const imageList = reactive([
   "cup1",
   "cup2",
   "cup3",
-//   "ditie",
+  //   "ditie",
   "line",
   "map",
   "mo",
@@ -434,7 +433,7 @@ const animationData = ref<any>({
   cup1: "",
   cup2: "",
   cup3: "",
-//   ditie: "",
+  //   ditie: "",
   line: "",
   map: "",
   mo: "",

@@ -77,8 +77,22 @@ onShow(() => {
   getAnimation(0, 0)
 })
 
+async function addUser() {
+  const data = await wx.cloud.callFunction({
+    name: "userManagerFun",
+    config: {
+      env: "test-3gszsltre96027e3",
+    },
+    data: {
+      type: "addUser",
+    },
+  });
+  console.log(data);
+}
 
-
+onMounted(async () => {
+  await addUser();
+});
 
 </script>
 
