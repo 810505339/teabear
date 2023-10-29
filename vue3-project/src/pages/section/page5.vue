@@ -20,9 +20,7 @@ import idCard from "@/static/img/page5/id-card.png";
 import sign from "@/static/img/page5/sign.png";
 import bearBottom from "@/static/img/page5/bear-bottom.png";
 onLoad((option) => {
-  if (option?.ok) {
-    show.value = true;
-  }
+  show.value = true;
 });
 const show = ref(false);
 </script>

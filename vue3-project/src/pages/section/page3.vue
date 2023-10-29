@@ -1,101 +1,38 @@
 <template>
   <view class="main">
-    <image :src="imageMap.bg" mode="cover" class="bg" />
-    <image
-      :src="imageMap.model_box"
-      mode="cover"
-      class="model_box"
-      :animation="animationData.model_box"
-    />
-    <image
-      :src="imageMap.text_1"
-      mode="cover"
-      class="text_1"
-      :animation="animationData.text_1"
-    />
-    <image
-      :src="imageMap.text_2"
-      mode="cover"
-      :style="{ width: type ? '329rpx' : '448rpx' }"
-      class="text_2"
-      :animation="animationData.text_2"
-    />
-    <image
-      :src="imageMap.text_3"
-      mode="cover"
-      class="text_3"
-      :animation="animationData.text_3"
-    />
-    <image
-      :src="imageMap.ticket"
-      mode="cover"
-      class="ticket"
-      :animation="animationData.ticket"
-      @click="redirect"
-      :style="
-        type
-          ? {
-              width: '758rpx',
-            }
-          : {}
-      "
-    />
-    <image
-      :src="imageMap.tips"
-      mode="cover"
-      class="tips"
-      :animation="animationData.tips"
-    />
-    <image
-      :src="imageMap.detail"
-      mode="cover"
-      class="detail"
-      :animation="animationData.detail"
-    />
-    <image
-      :src="imageMap.cup"
-      mode="cover"
-      class="cup"
-      :style="
-        type
-          ? {}
-          : {
-              width: '98rpx',
-              height: '128rpx',
-            }
-      "
-      :animation="animationData.cup"
-    />
-    <image
-      :src="imageMap.leaf"
-      mode="cover"
-      class="leaf"
-      :style="
-        type
-          ? {}
-          : {
-              width: '246rpx',
-              height: '254rpx',
-            }
-      "
-      :animation="animationData.leaf"
-    />
-    <image
-      :src="imageMap.btn"
-      mode="cover"
-      class="btn"
-      :animation="animationData.btn"
-      @click="onNext"
-    />
-    <view
-      class="userNumber"
-      :style="{
-        color: type ? '#9db01f' : '#AD7559',
-        background: type ? '#FFFFE3' : '#FFF6E1',
-      }"
-      :animation="animationData.userNumber"
-      >{{ userNumber }}</view
-    >
+    <image :src="imageMap.bg" class="bg" />
+    <image :src="imageMap.model_box" mode="cover" class="model_box" :animation="animationData.model_box" />
+    <image :src="imageMap.text_1" mode="cover" class="text_1" :animation="animationData.text_1" />
+    <image :src="imageMap.text_2" mode="cover" :style="{ width: type ? '329rpx' : '448rpx' }" class="text_2"
+      :animation="animationData.text_2" />
+    <image :src="imageMap.text_3" mode="cover" class="text_3" :animation="animationData.text_3" />
+    <image :src="imageMap.ticket" mode="cover" class="ticket" :animation="animationData.ticket" @click="redirect" :style="type
+      ? {
+        width: '758rpx',
+      }
+      : {}
+      " />
+    <image :src="imageMap.tips" mode="cover" class="tips" :animation="animationData.tips" />
+    <image :src="imageMap.detail" mode="cover" class="detail" :animation="animationData.detail" />
+    <image :src="imageMap.cup" mode="cover" class="cup" :style="type
+      ? {}
+      : {
+        width: '98rpx',
+        height: '128rpx',
+      }
+      " :animation="animationData.cup" />
+    <image :src="imageMap.leaf" mode="cover" class="leaf" :style="type
+      ? {}
+      : {
+        width: '246rpx',
+        height: '254rpx',
+      }
+      " :animation="animationData.leaf" />
+    <image :src="imageMap.btn" mode="cover" class="btn" :animation="animationData.btn" @click="onNext" />
+    <view class="userNumber" :style="{
+      color: type ? '#9db01f' : '#AD7559',
+      background: type ? '#FFFFE3' : '#FFF6E1',
+    }" :animation="animationData.userNumber">{{ userNumber }}</view>
   </view>
 </template>
 <script setup lang="ts">
@@ -167,7 +104,7 @@ function padWithZeros(number) {
   return str;
 }
 async function findUser() {
-  uni.showLoading();
+  // uni.showLoading();
   const res = await wx.cloud.callFunction({
     name: "userManagerFun",
     config: {
@@ -190,7 +127,8 @@ async function findUser() {
         confirmColor: type.value ? "#C7E12D" : "#FFC127",
       });
     } else {
-      isOver.value = true }
+      isOver.value = true
+    }
     userNumber.value = padWithZeros(num);
   } else {
     uni.showToast({
@@ -200,7 +138,7 @@ async function findUser() {
     });
   }
   console.log(res);
-  uni.hideLoading();
+  //uni.hideLoading();
 }
 const userNumber = ref("");
 const isOver = ref(true);
@@ -414,19 +352,16 @@ const onNext = () => {
 </script>
 <style>
 .main {
-  width: 100%;
-  min-height: 100vh;
-  height: 1333rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
 .bg {
-  width: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
+  bottom: 0;
+  right: 0;
   left: 0;
 }
 
@@ -443,6 +378,7 @@ const onNext = () => {
   width: 404rpx;
   height: 38rpx;
   position: absolute;
+  z-index: 10;
   top: 234rpx;
   left: 86rpx;
   opacity: 0;
@@ -453,6 +389,7 @@ const onNext = () => {
   height: 38rpx;
   position: absolute;
   top: 297rpx;
+  z-index: 10;
   left: 138rpx;
   opacity: 0;
 }
@@ -460,6 +397,7 @@ const onNext = () => {
 .text_3 {
   width: 568rpx;
   height: 38rpx;
+  z-index: 10;
   position: absolute;
   top: 361rpx;
   left: 84rpx;
@@ -500,6 +438,7 @@ const onNext = () => {
   left: 486rpx;
   opacity: 0;
 }
+
 .cup {
   width: 89rpx;
   height: 90rpx;
@@ -508,6 +447,7 @@ const onNext = () => {
   left: 353rpx;
   opacity: 0;
 }
+
 .leaf {
   width: 200rpx;
   height: 190rpx;
@@ -516,6 +456,7 @@ const onNext = () => {
   left: 18rpx;
   opacity: 0;
 }
+
 .userNumber {
   font-size: 25rpx;
   transform: rotateZ(15deg);
@@ -526,5 +467,10 @@ const onNext = () => {
   left: 450rpx;
   font-weight: bold;
   opacity: 0;
+}
+
+image {
+  width: 100%;
+  height: 100%;
 }
 </style>
