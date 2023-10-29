@@ -190,11 +190,7 @@ async function findUser() {
         confirmColor: type.value ? "#C7E12D" : "#FFC127",
       });
     } else {
-      isOver.value = tr、、、、
-    、
-    、
-  、
-、  }
+      isOver.value = true }
     userNumber.value = padWithZeros(num);
   } else {
     uni.showToast({
