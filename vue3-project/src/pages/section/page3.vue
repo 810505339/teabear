@@ -1,38 +1,101 @@
 <template>
   <view class="main">
     <image :src="imageMap.bg" class="bg" />
-    <image :src="imageMap.model_box" mode="cover" class="model_box" :animation="animationData.model_box" />
-    <image :src="imageMap.text_1" mode="cover" class="text_1" :animation="animationData.text_1" />
-    <image :src="imageMap.text_2" mode="cover" :style="{ width: type ? '329rpx' : '448rpx' }" class="text_2"
-      :animation="animationData.text_2" />
-    <image :src="imageMap.text_3" mode="cover" class="text_3" :animation="animationData.text_3" />
-    <image :src="imageMap.ticket" mode="cover" class="ticket" :animation="animationData.ticket" @click="redirect" :style="type
-      ? {
-        width: '758rpx',
-      }
-      : {}
-      " />
-    <image :src="imageMap.tips" mode="cover" class="tips" :animation="animationData.tips" />
-    <image :src="imageMap.detail" mode="cover" class="detail" :animation="animationData.detail" />
-    <image :src="imageMap.cup" mode="cover" class="cup" :style="type
-      ? {}
-      : {
-        width: '98rpx',
-        height: '128rpx',
-      }
-      " :animation="animationData.cup" />
-    <image :src="imageMap.leaf" mode="cover" class="leaf" :style="type
-      ? {}
-      : {
-        width: '246rpx',
-        height: '254rpx',
-      }
-      " :animation="animationData.leaf" />
-    <image :src="imageMap.btn" mode="cover" class="btn" :animation="animationData.btn" @click="onNext" />
-    <view class="userNumber" :style="{
-      color: type ? '#9db01f' : '#AD7559',
-      background: type ? '#FFFFE3' : '#FFF6E1',
-    }" :animation="animationData.userNumber">{{ userNumber }}</view>
+    <image
+      :src="imageMap.model_box"
+      mode="cover"
+      class="model_box"
+      :animation="animationData.model_box"
+    />
+    <image
+      :src="imageMap.text_1"
+      mode="cover"
+      class="text_1"
+      :animation="animationData.text_1"
+    />
+    <image
+      :src="imageMap.text_2"
+      mode="cover"
+      :style="{ width: type ? '329rpx' : '448rpx' }"
+      class="text_2"
+      :animation="animationData.text_2"
+    />
+    <image
+      :src="imageMap.text_3"
+      mode="cover"
+      class="text_3"
+      :animation="animationData.text_3"
+    />
+    <image
+      :src="imageMap.ticket"
+      mode="cover"
+      class="ticket"
+      :animation="animationData.ticket"
+      @click="redirect"
+      :style="
+        type
+          ? {
+              width: '758rpx',
+            }
+          : {}
+      "
+    />
+    <image
+      :src="imageMap.tips"
+      mode="cover"
+      class="tips"
+      :animation="animationData.tips"
+    />
+    <image
+      :src="imageMap.detail"
+      mode="cover"
+      class="detail"
+      :animation="animationData.detail"
+    />
+    <image
+      :src="imageMap.cup"
+      mode="cover"
+      class="cup"
+      :style="
+        type
+          ? {}
+          : {
+              width: '98rpx',
+              height: '128rpx',
+            }
+      "
+      :animation="animationData.cup"
+    />
+    <image
+      :src="imageMap.leaf"
+      mode="cover"
+      class="leaf"
+      :style="
+        type
+          ? {}
+          : {
+              width: '246rpx',
+              height: '254rpx',
+            }
+      "
+      :animation="animationData.leaf"
+    />
+    <image
+      :src="imageMap.btn"
+      mode="cover"
+      class="btn"
+      :animation="animationData.btn"
+      @click="onNext"
+    />
+    <view
+      class="userNumber"
+      :style="{
+        color: type ? '#9db01f' : '#AD7559',
+        background: type ? '#FFFFE3' : '#FFF6E1',
+      }"
+      :animation="animationData.userNumber"
+      >{{ userNumber }}</view
+    >
   </view>
 </template>
 <script setup lang="ts">
@@ -127,7 +190,7 @@ async function findUser() {
         confirmColor: type.value ? "#C7E12D" : "#FFC127",
       });
     } else {
-      isOver.value = true
+      isOver.value = true;
     }
     userNumber.value = padWithZeros(num);
   } else {
@@ -246,6 +309,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
+    sleep: 200,
     key: "text_1",
   },
   text_1_move: {
@@ -261,6 +325,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
+    sleep: 200,
     key: "text_2",
   },
   text_2_move: {
@@ -276,6 +341,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
+    sleep: 200,
     key: "text_3",
   },
   text_3_move: {
@@ -352,9 +418,12 @@ const onNext = () => {
 </script>
 <style>
 .main {
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  height: 1333rpx;
   position: relative;
+  top: 0;
+  left: 0;
 }
 
 .bg {
@@ -378,7 +447,7 @@ const onNext = () => {
   width: 404rpx;
   height: 38rpx;
   position: absolute;
-  z-index: 10;
+  z-index: 100;
   top: 234rpx;
   left: 86rpx;
   opacity: 0;
@@ -389,7 +458,7 @@ const onNext = () => {
   height: 38rpx;
   position: absolute;
   top: 297rpx;
-  z-index: 10;
+  z-index: 100;
   left: 138rpx;
   opacity: 0;
 }
@@ -397,7 +466,7 @@ const onNext = () => {
 .text_3 {
   width: 568rpx;
   height: 38rpx;
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   top: 361rpx;
   left: 84rpx;
