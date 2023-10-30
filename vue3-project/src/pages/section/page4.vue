@@ -18,11 +18,13 @@ onShareAppMessage((res) => {
   //     console.log(11, res.target);
   //   }
 
-  uni.navigateTo({
-    url: '/pages/section/page5',
-    animationType: 'none',
-    animationDuration: 200
-  })
+  setTimeout(() => {
+    uni.navigateTo({
+      url: '/pages/section/page5',
+      animationType: 'none',
+      animationDuration: 200
+    })
+  }, 200)
   return {
     title: "生成搜茶令",
     path: "/pages/section/page1?ok=true",

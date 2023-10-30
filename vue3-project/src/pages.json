@@ -7,17 +7,17 @@
 		// 	}
 		// },
 		// {
-		// 	"path": "pages/section/page1",
-		// 	"style": {
-		// 		"navigationBarTitleText": "街头搜「茶」"
-		// 	}
-		// },
-		// {
-		// 	"path": "pages/section/page2",
-		// 	"style": {
-		// 		"navigationBarTitleText": "街头搜「茶」"
-		// 	}
-		// },
+			"path": "pages/section/page1",
+			"style": {
+				"navigationBarTitleText": "街头搜「茶」"
+			}
+		},
+		{
+			"path": "pages/section/page2",
+			"style": {
+				"navigationBarTitleText": "街头搜「茶」"
+			}
+		},
 		{
 			"path": "pages/section/page3",
 			"style": {
