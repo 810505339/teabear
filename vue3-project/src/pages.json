@@ -3,43 +3,43 @@
 		// {
 		// 	"path": "pages/section/login",
 		// 	"style": {
-		// 		"navigationBarTitleText": "uni-app"
+		// 		"navigationBarTitleText": "街头搜「茶」"
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/section/page1",
+		// 	"style": {
+		// 		"navigationBarTitleText": "街头搜「茶」"
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/section/page2",
+		// 	"style": {
+		// 		"navigationBarTitleText": "街头搜「茶」"
 		// 	}
 		// },
 		{
-			"path": "pages/section/page1",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		},
-		{
-			"path": "pages/section/page2",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		},
-		{
 			"path": "pages/section/page3",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "街头搜「茶」"
 			}
 		},
 		{
 			"path": "pages/section/page4",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "街头搜「茶」"
 			}
 		},
 		{
 			"path": "pages/section/page5",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "街头搜「茶」"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "街头搜「茶」",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}
