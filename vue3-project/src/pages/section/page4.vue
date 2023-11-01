@@ -99,6 +99,7 @@ const xiongAnimation = (index: number) => {
         opacity: 1,
       },
       duration: 2000,
+      sleep: 10,
       key: "xiong" + index,
     },
     xiongMove: {
@@ -144,7 +145,7 @@ const animationStep = {
   },
   position1: {
     action: {
-      top: "130rpx",
+      top: "157rpx",
     },
     duration: 500,
     sleep: 500,
@@ -152,7 +153,7 @@ const animationStep = {
   },
   position22: {
     action: {
-      top: "110rpx",
+      top: "137rpx",
     },
     duration: 500,
     key: "position",
@@ -162,6 +163,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 1000,
+    sleep: 200,
     key: "tips",
   },
   tips1: {
@@ -172,13 +174,13 @@ const animationStep = {
     sleep: 1000,
     key: "tips",
   },
-  line: {
-    action: {
-      opacity: 1,
-    },
-    duration: 1000,
-    key: "line",
-  },
+  // line: {
+  //   action: {
+  //     opacity: 1,
+  //   },
+  //   duration: 1000,
+  //   key: "line",
+  // },
   map: {
     action: {
       opacity: 1,
@@ -206,7 +208,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 500,
-    sleep: 1,
+    sleep: 20,
     key: "cup1",
   },
   cup11: {
@@ -229,7 +231,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 500,
-    sleep: 1,
+    sleep: 10,
     key: "cup2",
   },
   cup21: {
@@ -252,7 +254,7 @@ const animationStep = {
       opacity: 1,
     },
     duration: 500,
-    sleep: 1,
+    sleep: 10,
     key: "cup3",
   },
   cup31: {
@@ -276,7 +278,7 @@ const animationStep = {
       rotateX: 0,
     },
     duration: 300,
-    sleep: 1,
+    sleep: 20,
     key: "siji",
   },
   siji1: {
@@ -375,6 +377,48 @@ const animationStep = {
     sleep: 2000,
     key: "t5",
   },
+  leaf: {
+    action: {
+      opacity: 1,
+    },
+    duration: 2000,
+    key: "leaf",
+  },
+  leaf1: {
+    action: {
+      opacity: 1,
+    },
+    duration: 2000,
+    key: "leaf1",
+  },
+  leaf2: {
+    action: {
+      opacity: 1,
+    },
+    duration: 2000,
+    key: "leaf2",
+  },
+  leaf3: {
+    action: {
+      opacity: 1,
+    },
+    duration: 2000,
+    key: "leaf3",
+  },
+  leaf4: {
+    action: {
+      opacity: 1,
+    },
+    duration: 2000,
+    key: "leaf4",
+  },
+  leaf5: {
+    action: {
+      opacity: 1,
+    },
+    duration: 2000,
+    key: "leaf5",
+  },
 };
 const imageList = reactive([
   "bg",
@@ -405,6 +449,12 @@ const imageList = reactive([
   "xiong4",
   "rule_model",
   "video",
+  "leaf",
+  "leaf1",
+  "leaf2",
+  "leaf3",
+  "leaf4",
+  "leaf5",
 ]);
 
 const animationData = ref<any>({
@@ -435,6 +485,12 @@ const animationData = ref<any>({
   xiong3: "",
   xiong4: "",
   video: "",
+  leaf: "",
+  leaf1: "",
+  leaf2: "",
+  leaf3: "",
+  leaf4: "",
+  leaf5: "",
 });
 </script>
 
@@ -700,7 +756,7 @@ const animationData = ref<any>({
   width: 500rpx;
   height: 50rpx;
   position: absolute;
-  top: 236rpx;
+  top: 268rpx;
   left: -500rpx;
   opacity: 0;
 }
@@ -709,7 +765,7 @@ const animationData = ref<any>({
   width: 502rpx;
   height: 112rpx;
   position: absolute;
-  top: 96rpx;
+  top: 128rpx;
   left: 22rpx;
   opacity: 0;
 }
@@ -729,6 +785,60 @@ const animationData = ref<any>({
   position: absolute;
   top: 1186rpx;
   left: 131rpx;
+  opacity: 0;
+  z-index: 5;
+}
+.leaf {
+  width: 82rpx;
+  height: 65rpx;
+  position: absolute;
+  top: 209rpx;
+  left: 460rpx;
+  opacity: 0;
+  z-index: 5;
+}
+.leaf1 {
+  width: 93rpx;
+  height: 120rpx;
+  position: absolute;
+  top: 318rpx;
+  left: 40rpx;
+  opacity: 0;
+  z-index: 5;
+}
+.leaf2 {
+  width: 162rpx;
+  height: 158rpx;
+  position: absolute;
+  top: 303rpx;
+  left: 586rpx;
+  opacity: 0;
+  z-index: 5;
+}
+.leaf3 {
+  width: 61rpx;
+  height: 65rpx;
+  position: absolute;
+  top: 818rpx;
+  left: 258rpx;
+  opacity: 0;
+  z-index: 5;
+}
+.leaf4 {
+  width: 135rpx;
+  height: 188rpx;
+  position: absolute;
+  top: 1092rpx;
+  left: 0;
+  opacity: 0;
+  z-index: 5;
+}
+.leaf5 {
+  width: 88rpx;
+  height: 94rpx;
+  position: absolute;
+  top: 1138rpx;
+  left: 608rpx;
   opacity: 0;
   z-index: 5;
 }
