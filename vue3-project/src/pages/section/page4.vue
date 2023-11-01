@@ -1,9 +1,16 @@
 <template>
   <view class="main">
-    <image :src="`/static/img/page4/${item}.png`" :class="item" v-for="(item, index) in imageList"
-      :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }" :key="index" @click="
+    <image
+      :src="`/static/img/page4/${item}.png`"
+      :class="item"
+      v-for="(item, index) in imageList"
+      :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }"
+      :key="index"
+      @click="
         item == 'rule' || item == 'rule_model' ? showModel() : closeModel(item)
-        " :animation="animationData[item]" />
+      "
+      :animation="animationData[item]"
+    />
     <button open-type="share" class="share"></button>
   </view>
 </template>
@@ -20,11 +27,11 @@ onShareAppMessage((res) => {
 
   setTimeout(() => {
     uni.navigateTo({
-      url: '/pages/section/page5',
-      animationType: 'none',
-      animationDuration: 200
-    })
-  }, 200)
+      url: "/pages/section/page5",
+      animationType: "none",
+      animationDuration: 200,
+    });
+  }, 200);
   return {
     title: "生成搜茶令",
     path: "/pages/section/page1?ok=true",
@@ -180,33 +187,12 @@ const animationStep = {
     sleep: 1000,
     key: "map",
   },
-  t10: {
+  video: {
     action: {
       opacity: 1,
     },
     duration: 1000,
-    key: "t10",
-  },
-  t23: {
-    action: {
-      opacity: 1,
-    },
-    duration: 1000,
-    key: "t23",
-  },
-  t32: {
-    action: {
-      opacity: 1,
-    },
-    duration: 1000,
-    key: "t32",
-  },
-  ditie: {
-    action: {
-      opacity: 1,
-    },
-    duration: 1000,
-    key: "ditie",
+    key: "video",
   },
   city: {
     action: {
@@ -220,11 +206,12 @@ const animationStep = {
       opacity: 1,
     },
     duration: 500,
+    sleep: 1,
     key: "cup1",
   },
   cup11: {
     action: {
-      top: "463rpx",
+      top: "459rpx",
     },
     duration: 300,
     sleep: 300,
@@ -232,7 +219,7 @@ const animationStep = {
   },
   cup12: {
     action: {
-      top: "443rpx",
+      top: "439rpx",
     },
     duration: 500,
     key: "cup1",
@@ -242,11 +229,12 @@ const animationStep = {
       opacity: 1,
     },
     duration: 500,
+    sleep: 1,
     key: "cup2",
   },
   cup21: {
     action: {
-      top: "622rpx",
+      top: "588rpx",
     },
     duration: 300,
     sleep: 300,
@@ -254,7 +242,7 @@ const animationStep = {
   },
   cup22: {
     action: {
-      top: "602rpx",
+      top: "568rpx",
     },
     duration: 500,
     key: "cup2",
@@ -264,11 +252,12 @@ const animationStep = {
       opacity: 1,
     },
     duration: 500,
+    sleep: 1,
     key: "cup3",
   },
   cup31: {
     action: {
-      top: "574rpx",
+      top: "467rpx",
     },
     duration: 300,
     sleep: 300,
@@ -276,7 +265,7 @@ const animationStep = {
   },
   cup32: {
     action: {
-      top: "554rpx",
+      top: "447rpx",
     },
     duration: 500,
     sleep: 300,
@@ -287,6 +276,7 @@ const animationStep = {
       rotateX: 0,
     },
     duration: 300,
+    sleep: 1,
     key: "siji",
   },
   siji1: {
@@ -391,9 +381,6 @@ const imageList = reactive([
   "t3",
   "t4",
   "t5",
-  "t10",
-  "t23",
-  "t32",
   "btn",
   "chaoyang",
   "chu",
@@ -401,7 +388,6 @@ const imageList = reactive([
   "cup1",
   "cup2",
   "cup3",
-  //   "ditie",
   "line",
   "map",
   "mo",
@@ -418,6 +404,7 @@ const imageList = reactive([
   "xiong3",
   "xiong4",
   "rule_model",
+  "video",
 ]);
 
 const animationData = ref<any>({
@@ -425,9 +412,6 @@ const animationData = ref<any>({
   t3: "",
   t4: "",
   t5: "",
-  t10: "",
-  t23: "",
-  t32: "",
   btn: "",
   chaoyang: "",
   chu: "",
@@ -435,7 +419,6 @@ const animationData = ref<any>({
   cup1: "",
   cup2: "",
   cup3: "",
-  //   ditie: "",
   line: "",
   map: "",
   mo: "",
@@ -451,6 +434,7 @@ const animationData = ref<any>({
   xiong2: "",
   xiong3: "",
   xiong4: "",
+  video: "",
 });
 </script>
 
@@ -502,32 +486,42 @@ const animationData = ref<any>({
   opacity: 0;
 }
 
-.t10 {
-  width: 125rpx;
-  height: 77rpx;
+.xiong3 {
+  width: 163rpx;
+  height: 129rpx;
   position: absolute;
-  top: 645rpx;
-  left: 330rpx;
+  top: 527rpx;
+  left: 430rpx;
   z-index: 3;
   opacity: 0;
 }
 
-.t23 {
-  width: 125rpx;
-  height: 77rpx;
+.xiong2 {
+  width: 168rpx;
+  height: 139rpx;
   position: absolute;
-  top: 500rpx;
-  left: 25rpx;
+  top: 528rpx;
+  left: 40rpx;
   z-index: 3;
   opacity: 0;
 }
 
-.t32 {
-  width: 125rpx;
-  height: 77rpx;
+.xiong1 {
+  width: 107rpx;
+  height: 90rpx;
   position: absolute;
-  top: 422rpx;
-  left: 58rpx;
+  top: 424rpx;
+  left: 130rpx;
+  z-index: 3;
+  opacity: 0;
+}
+
+.video {
+  width: 63rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 558rpx;
+  left: 302rpx;
   z-index: 3;
   opacity: 0;
 }
@@ -556,7 +550,7 @@ const animationData = ref<any>({
   height: 174rpx;
   position: absolute;
   top: 447rpx;
-  left: 287rpx;
+  left: 241rpx;
   z-index: 3;
   opacity: 0;
 }
@@ -566,7 +560,7 @@ const animationData = ref<any>({
   height: 59rpx;
   position: absolute;
   top: -59rpx;
-  left: 472rpx;
+  left: 461rpx;
   z-index: 3;
   opacity: 0;
 }
@@ -576,7 +570,7 @@ const animationData = ref<any>({
   height: 59rpx;
   position: absolute;
   top: -59rpx;
-  left: 254rpx;
+  left: 218rpx;
   z-index: 3;
   opacity: 0;
 }
@@ -586,17 +580,17 @@ const animationData = ref<any>({
   height: 82rpx;
   position: absolute;
   top: -82rpx;
-  left: 439rpx;
+  left: 569rpx;
   z-index: 3;
   opacity: 0;
 }
 
 .xiong4 {
-  width: 140rpx;
-  height: 110rpx;
+  width: 138rpx;
+  height: 112rpx;
   position: absolute;
-  top: 672rpx;
-  left: 70rpx;
+  top: 666rpx;
+  left: 68rpx;
   z-index: 3;
   opacity: 0;
 }
@@ -729,45 +723,6 @@ const animationData = ref<any>({
   opacity: 0;
 }
 
-.xiong1 {
-  width: 83rpx;
-  height: 133rpx;
-  position: absolute;
-  top: 550rpx;
-  left: 520rpx;
-  z-index: 3;
-  opacity: 0;
-}
-
-.xiong2 {
-  width: 78rpx;
-  height: 125rpx;
-  position: absolute;
-  top: 357rpx;
-  left: 197rpx;
-  z-index: 3;
-  opacity: 0;
-}
-
-.xiong3 {
-  width: 68rpx;
-  height: 110rpx;
-  position: absolute;
-  top: 377rpx;
-  left: 553rpx;
-  z-index: 3;
-  opacity: 0;
-}
-
-/* .xiong4 {
-  width: 80rpx;
-  height: 128rpx;
-  position: absolute;
-  top: 572rpx;
-  left: 151rpx;
-  z-index: 3;
-  opacity: 0;
-} */
 .share {
   width: 487rpx;
   height: 92rpx;

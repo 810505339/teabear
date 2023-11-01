@@ -58,7 +58,7 @@ import model_box2 from "@/static/img/page3/model_box2.png";
 import text_12 from "@/static/img/page3/text_12.png";
 import text_22 from "@/static/img/page3/text_22.png";
 import text_32 from "@/static/img/page3/text_32.png";
-import text_42 from "@/static/img/page3/text_24.png";
+import text_42 from "@/static/img/page3/text_42.png";
 import ticket2 from "@/static/img/page3/ticket2.png";
 import tips2 from "@/static/img/page3/tips2.png";
 import detail2 from "@/static/img/page3/detail2.png";
