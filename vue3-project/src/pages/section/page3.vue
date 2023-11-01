@@ -1,101 +1,39 @@
 <template>
   <view class="main">
     <image :src="imageMap.bg" class="bg" />
-    <image
-      :src="imageMap.model_box"
-      mode="cover"
-      class="model_box"
-      :animation="animationData.model_box"
-    />
-    <image
-      :src="imageMap.text_1"
-      mode="cover"
-      class="text_1"
-      :animation="animationData.text_1"
-    />
-    <image
-      :src="imageMap.text_2"
-      mode="cover"
-      :style="{ width: type ? '329rpx' : '448rpx' }"
-      class="text_2"
-      :animation="animationData.text_2"
-    />
-    <image
-      :src="imageMap.text_3"
-      mode="cover"
-      class="text_3"
-      :animation="animationData.text_3"
-    />
-    <image
-      :src="imageMap.ticket"
-      mode="cover"
-      class="ticket"
-      :animation="animationData.ticket"
-      @click="redirect"
-      :style="
-        type
-          ? {
-              width: '758rpx',
-            }
-          : {}
-      "
-    />
-    <image
-      :src="imageMap.tips"
-      mode="cover"
-      class="tips"
-      :animation="animationData.tips"
-    />
-    <image
-      :src="imageMap.detail"
-      mode="cover"
-      class="detail"
-      :animation="animationData.detail"
-    />
-    <image
-      :src="imageMap.cup"
-      mode="cover"
-      class="cup"
-      :style="
-        type
-          ? {}
-          : {
-              width: '98rpx',
-              height: '128rpx',
-            }
-      "
-      :animation="animationData.cup"
-    />
-    <image
-      :src="imageMap.leaf"
-      mode="cover"
-      class="leaf"
-      :style="
-        type
-          ? {}
-          : {
-              width: '246rpx',
-              height: '254rpx',
-            }
-      "
-      :animation="animationData.leaf"
-    />
-    <image
-      :src="imageMap.btn"
-      mode="cover"
-      class="btn"
-      :animation="animationData.btn"
-      @click="onNext"
-    />
-    <view
-      class="userNumber"
-      :style="{
-        color: type ? '#9db01f' : '#AD7559',
-        background: type ? '#FFFFE3' : '#FFF6E1',
-      }"
-      :animation="animationData.userNumber"
-      >{{ userNumber }}</view
-    >
+    <image :src="imageMap.model_box" mode="cover" class="model_box" :animation="animationData.model_box" />
+    <image :src="imageMap.text_1" mode="cover" class="text_1" :animation="animationData.text_1" />
+    <image :src="imageMap.text_2" mode="cover"  class="text_2"
+      :animation="animationData.text_2" />
+    <image :src="imageMap.text_3" mode="cover" class="text_3" :animation="animationData.text_3" />
+    <image :src="imageMap.text_4" mode="cover" class="text_4" :animation="animationData.text_4" />
+    <image :src="imageMap.ticket" mode="cover" class="ticket" :animation="animationData.ticket" @click="redirect" :style="type
+      ? {
+        width: '758rpx',
+      }
+      : {}
+      " />
+    <image :src="imageMap.tips" mode="cover" class="tips" :animation="animationData.tips" />
+    <image :src="imageMap.detail" mode="cover" class="detail" :animation="animationData.detail" />
+    <image :src="imageMap.cup" mode="cover" class="cup" :style="type
+      ? {}
+      : {
+        width: '98rpx',
+        height: '128rpx',
+      }
+      " :animation="animationData.cup" />
+    <image :src="imageMap.leaf" mode="cover" class="leaf" :style="type
+      ? {}
+      : {
+        width: '246rpx',
+        height: '254rpx',
+      }
+      " :animation="animationData.leaf" />
+    <image :src="imageMap.btn" mode="cover" class="btn" :animation="animationData.btn" @click="onNext" />
+    <view class="userNumber" :style="{
+      color: type ? '#9db01f' : '#AD7559',
+      background: type ? '#FFFFE3' : '#FFF6E1',
+    }" :animation="animationData.userNumber">{{ userNumber }}</view>
   </view>
 </template>
 <script setup lang="ts">
@@ -107,6 +45,7 @@ import model_box1 from "@/static/img/page3/model_box.png";
 import text_11 from "@/static/img/page3/text_1.png";
 import text_21 from "@/static/img/page3/text_2.png";
 import text_31 from "@/static/img/page3/text_3.png";
+import text_41 from "@/static/img/page3/text_4.png";
 import ticket1 from "@/static/img/page3/ticket.png";
 import tips1 from "@/static/img/page3/tips.png";
 import detail1 from "@/static/img/page3/detail.png";
@@ -119,6 +58,7 @@ import model_box2 from "@/static/img/page3/model_box2.png";
 import text_12 from "@/static/img/page3/text_12.png";
 import text_22 from "@/static/img/page3/text_22.png";
 import text_32 from "@/static/img/page3/text_32.png";
+import text_42 from "@/static/img/page3/text_24.png";
 import ticket2 from "@/static/img/page3/ticket2.png";
 import tips2 from "@/static/img/page3/tips2.png";
 import detail2 from "@/static/img/page3/detail2.png";
@@ -131,6 +71,7 @@ let timer1: any = null;
 
 onLoad((option) => {
   const v = option?.flag == 2;
+ 
   type.value = v;
   const data: any = {
     bg: v ? bg1 : bg2,
@@ -138,6 +79,7 @@ onLoad((option) => {
     text_1: v ? text_11 : text_12,
     text_2: v ? text_21 : text_22,
     text_3: v ? text_31 : text_32,
+    text_4: v ? text_41 : text_42,
     ticket: v ? ticket1 : ticket2,
     tips: v ? tips1 : tips2,
     detail: v ? detail1 : detail2,
@@ -255,6 +197,7 @@ const animationData = ref({
   text_1: "",
   text_2: "",
   text_3: "",
+  text_4: "",
   ticket: "",
   tips: "",
   detail: "",
@@ -352,6 +295,23 @@ const animationStep = {
     sleep: 1000,
     key: "text_3",
   },
+  text_4_show: {
+    action: {
+      opacity: 1,
+    },
+    duration: 1000,
+    sleep: 200,
+    key: "text_4",
+  },
+  text_4_move: {
+    action: {
+      translateY: "-30rpx",
+    },
+    duration: 1000,
+    sleep: 1000,
+    key: "text_4",
+  },
+  
   tips: {
     action: {
       opacity: 1,
@@ -444,32 +404,42 @@ const onNext = () => {
 }
 
 .text_1 {
-  width: 404rpx;
-  height: 38rpx;
+  width: 582rpx;
+  height: 39rpx;
   position: absolute;
   z-index: 100;
-  top: 234rpx;
-  left: 86rpx;
+  top: 200rpx;
+  left: 100rpx;
   opacity: 0;
 }
 
 .text_2 {
-  width: 329rpx;
+  width: 533rpx;
   height: 38rpx;
   position: absolute;
-  top: 297rpx;
+  top: 260rpx;
   z-index: 100;
-  left: 138rpx;
+  left: 100rpx;
   opacity: 0;
 }
 
 .text_3 {
-  width: 568rpx;
-  height: 38rpx;
+  width: 543rpx;
+  height: 39rpx;
   z-index: 100;
   position: absolute;
-  top: 361rpx;
-  left: 84rpx;
+  top: 320rpx;
+  left: 100rpx;
+  opacity: 0;
+}
+
+.text_4 {
+  width: 343rpx;
+  height: 36rpx;
+  z-index: 100;
+  position: absolute;
+  top: 380rpx;
+  left: 100rpx;
   opacity: 0;
 }
 
