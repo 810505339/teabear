@@ -1,17 +1,10 @@
 <template>
   <view class="main">
-    <image
-      :src="`/static/img/page4/${item}.png`"
-      :class="item"
-      v-for="(item, index) in imageList"
-      :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }"
-      :key="index"
-      mode="cover"
-      @click="
+    <image :src="item == 'rule_model' ? 'http://s3hhcuo5k.bkt.clouddn.com/img/rule_model.png' : `/static/img/page4/${item}.png`" :class="item"
+      v-for="(item, index) in imageList" :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }"
+      :key="index" @click="
         item == 'rule' || item == 'rule_model' ? showModel() : closeModel(item)
-      "
-      :animation="animationData[item]"
-    />
+        " :animation="animationData[item]" />
     <button open-type="share" class="share"></button>
   </view>
 </template>
@@ -789,6 +782,7 @@ const animationData = ref<any>({
   opacity: 0;
   z-index: 5;
 }
+
 .leaf {
   width: 82rpx;
   height: 65rpx;
@@ -798,6 +792,7 @@ const animationData = ref<any>({
   opacity: 0;
   z-index: 5;
 }
+
 .leaf1 {
   width: 93rpx;
   height: 120rpx;
@@ -807,6 +802,7 @@ const animationData = ref<any>({
   opacity: 0;
   z-index: 5;
 }
+
 .leaf2 {
   width: 162rpx;
   height: 158rpx;
@@ -816,6 +812,7 @@ const animationData = ref<any>({
   opacity: 0;
   z-index: 5;
 }
+
 .leaf3 {
   width: 61rpx;
   height: 65rpx;
@@ -825,6 +822,7 @@ const animationData = ref<any>({
   opacity: 0;
   z-index: 5;
 }
+
 .leaf4 {
   width: 135rpx;
   height: 188rpx;
@@ -834,6 +832,7 @@ const animationData = ref<any>({
   opacity: 0;
   z-index: 5;
 }
+
 .leaf5 {
   width: 88rpx;
   height: 94rpx;
