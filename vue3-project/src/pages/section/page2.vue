@@ -319,14 +319,14 @@ const animationStep = {
   // },
   xiongDa1: {
     action: {
-      translateX: "215rpx",
+      translateX: "-424rpx",
     },
     duration: 500,
     key: "xiongDa",
   },
   xiongEr2: {
     action: {
-      translateX: "-215rpx",
+      translateX: "323rpx",
     },
     duration: 500,
     key: "xiongEr",
@@ -475,10 +475,10 @@ const onNext = (type: any) => {
 }
 
 .to_left {
-  width: 665rpx;
-  height: 518rpx;
+  width: 668rpx;
+  height: 520rpx;
   position: absolute;
-  top: 685rpx;
+  top: 694rpx;
   left: 100%;
   /* background: #feffe8; */
   -webkit-clip-path: polygon(0 0, 76% 0, 24% 100%, 0% 100%);
@@ -493,7 +493,7 @@ const onNext = (type: any) => {
   left: calc(790rpx - 100%);
 }
 .to_left_click {
-  width: 665rpx;
+  width: 668rpx;
   height: 448rpx;
   position: absolute;
   top: 790rpx;
@@ -502,43 +502,43 @@ const onNext = (type: any) => {
 }
 .text_youliao {
   position: absolute;
-  top: 481rpx;
-  left: 261rpx;
+  top: 510rpx;
+  left: 100rpx;
   color: #825d45;
   z-index: 2;
   opacity: 0;
-  width: 418rpx;
-  height: 110rpx;
+  width: 318rpx;
+  height: 84rpx;
 }
 .youliao_bg {
   position: absolute;
-  top: 552rpx;
-  left: 261rpx;
+  top: 564rpx;
+  left: 100rpx;
   color: #825d45;
   z-index: 1;
   opacity: 0;
-  width: 424rpx;
-  height: 45rpx;
+  width: 322rpx;
+  height: 34rpx;
 }
 .text_zhiyu {
   color: #b1d026;
   position: absolute;
-  top: 976rpx;
-  right: 247rpx;
+  top: 990rpx;
+  right: 75rpx;
   z-index: 2;
   opacity: 0;
-  width: 418rpx;
-  height: 110rpx;
+  width: 312rpx;
+  height: 82rpx;
 }
 .zhiyu_bg {
   color: #b1d026;
   position: absolute;
-  top: 1042rpx;
-  right: 244rpx;
+  top: 1039rpx;
+  right: 73rpx;
   z-index: 1;
   opacity: 0;
-  width: 424rpx;
-  height: 45rpx;
+  width: 317rpx;
+  height: 34rpx;
 }
 .or {
   width: 292rpx;
@@ -546,32 +546,33 @@ const onNext = (type: any) => {
   position: absolute;
   top: 699rpx;
   left: 226rpx;
+  z-index: 4;
   opacity: 0;
 }
 
 .box {
   position: absolute;
   left: 37rpx;
-  width: 673rpx;
-  height: 100vh;
+  width: calc(100vw - 37rpx);
+  height: 100%;
   overflow: hidden;
   z-index: 3;
 }
 
 .xiongDa {
-  width: 215rpx;
-  height: 354rpx;
+  width: 424rpx;
+  height: 319rpx;
   position: absolute;
-  top: 408rpx;
-  left: calc(36rpx - 250rpx);
+  top: 440rpx;
+  right: -424rpx;
 }
 
 .xiongEr {
-  width: 215rpx;
-  height: 354rpx;
+  width: 323rpx;
+  height: 340rpx;
   position: absolute;
-  top: 799rpx;
-  right: calc(36rpx - 250rpx);
+  top: 868rpx;
+  left: -323rpx;
 }
 
 .leaf_1 {
@@ -602,10 +603,10 @@ const onNext = (type: any) => {
   opacity: 0;
 }
 .leaf_4 {
-  width: 256rpx;
-  height: 241rpx;
+  width: 176rpx;
+  height: 166rpx;
   position: absolute;
-  top: 1067rpx;
+  top: 1163rpx;
   left: 22rpx;
   z-index: 5;
   opacity: 0;
@@ -620,11 +621,11 @@ const onNext = (type: any) => {
   opacity: 0;
 }
 .leaf_6 {
-  width: 200rpx;
-  height: 206rpx;
+  width: 164rpx;
+  height: 174rpx;
   position: absolute;
-  top: 1127rpx;
-  left: 524rpx;
+  top: 1159rpx;
+  right: 0;
   z-index: 5;
   opacity: 0;
 }
