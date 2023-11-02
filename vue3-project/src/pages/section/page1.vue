@@ -25,7 +25,7 @@ import { onShow } from "@dcloudio/uni-app"
 const yePng = 'http://s2ccxxdhp.bkt.clouddn.com/gif/ye.gif'
 const ye2Png = 'http://s2ccxxdhp.bkt.clouddn.com/gif/ye2.gif'
 const ye3Png = 'http://s2ccxxdhp.bkt.clouddn.com/gif/ye3.gif'
-const greenBar = 'http://s2ccxxdhp.bkt.clouddn.com/gif/greenbar.gif'
+const greenBar = 'http://s2ccxxdhp.bckt.clouddn.com/gif/greenbar.gif'
 
 //熊
 
