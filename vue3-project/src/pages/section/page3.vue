@@ -70,7 +70,7 @@ import { onLoad } from "@dcloudio/uni-app";
 let timer1: any = null;
 
 onLoad((option) => {
-  const v = option?.flag == 2;
+  const v = option?.flag == 2; 
  
   type.value = v;
   const data: any = {
@@ -461,11 +461,11 @@ const onNext = () => {
 }
 
 .detail {
-  width: 275rpx;
-  height: 145rpx;
+  width: 316rpx;
+  height:136rpx;
   position: absolute;
   top: 1143rpx;
-  left: 20rpx;
+  left: 21rpx;
   opacity: 0;
 }
 
