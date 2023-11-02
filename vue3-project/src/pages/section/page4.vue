@@ -6,6 +6,7 @@
       v-for="(item, index) in imageList"
       :style="{ display: item == 'rule_model' && !show ? 'none' : 'block' }"
       :key="index"
+      mode="cover"
       @click="
         item == 'rule' || item == 'rule_model' ? showModel() : closeModel(item)
       "
@@ -307,7 +308,7 @@ const animationStep = {
     action: {
       opacity: 1,
     },
-    duration: 1000,
+    duration: 2000,
     key: "time",
   },
   title_bg: {
@@ -728,7 +729,7 @@ const animationData = ref<any>({
   position: absolute;
   top: 347rpx;
   left: 50rpx;
-  z-index: 4;
+  z-index: 6;
   opacity: 0;
 }
 
@@ -748,7 +749,7 @@ const animationData = ref<any>({
   position: absolute;
   top: 902rpx;
   left: 311rpx;
-  z-index: 2;
+  z-index: 5;
   opacity: 0;
 }
 
