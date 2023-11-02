@@ -302,21 +302,21 @@ const animationStep = {
     duration: 3000,
     key: "zhiyu",
   },
-  // xiongDa: {
-  // 	action: {
-  // 		translateX: '250rpx'
-  // 	},
-  // 	duration: 2000,
-  // 	key: 'xiongDa'
-  // },
-  // xiongEr: {
-  // 	action: {
-  // 		translateX: '-250rpx'
-  // 	},
-  // 	duration: 2000,
-  // 	sleep: 1500,
-  // 	key: 'xiongEr'
-  // },
+  xiongDa: {
+  	action: {
+  		translateX: '-444rpx'
+  	},
+  	duration: 1000,
+  	key: 'xiongDa'
+  },
+  xiongEr: {
+  	action: {
+  		translateX: '343rpx'
+  	},
+  	duration: 1000,
+  	sleep: 1000,
+  	key: 'xiongEr'
+  },
   xiongDa1: {
     action: {
       translateX: "-424rpx",
